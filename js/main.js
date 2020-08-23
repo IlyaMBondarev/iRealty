@@ -118,7 +118,7 @@ for (let i = 0; i < searchOpenBtns.length; i++) {
 
 //favorites
 
-let favoritesOpenBtns = document.querySelectorAll('.favorites-drop-btn');
+let favoritesOpenBtns = document.querySelectorAll('.favorites-drop');
 let favoritesBlock = document.querySelectorAll('.favorites');
 
 for (let i = 0; i < favoritesOpenBtns.length; i++) {
