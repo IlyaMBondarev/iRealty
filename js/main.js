@@ -76,43 +76,19 @@ for(let i = 0; i < sliders.length; i++) {
     });
 }
 
-//search-on-map-btn
-
-let searchOnMapOpenBtns = document.querySelectorAll('.open-search-on-map');
-let searchOnMapLines = document.querySelectorAll('.search-on-map');
-let officeDescriptions = document.querySelectorAll('.office-desc');
-
-for (let i = 0; i < searchOnMapOpenBtns.length; i++) {
-    searchOnMapOpenBtns[i].addEventListener('click', () => {
-        searchOnMapLines[i].classList.toggle('hidden');
-        officeDescriptions[i].classList.toggle('hidden');
-    })
-}
-
-document.addEventListener('click', event => {
-    let target = event.target;
-    for (let i = 0; i < searchOnMapOpenBtns.length; i++) {
-        if (!(target === searchOnMapOpenBtns[i]) && !(searchOnMapOpenBtns[i].contains(target)) && !(searchOnMapLines[i].classList.contains('hidden'))) {
-            searchOnMapLines[i].classList.toggle('hidden');
-            officeDescriptions[i].classList.toggle('hidden');
-        }
-    }
-})
-
 //search-line
 
-let searchOpenBtns = document.querySelectorAll('.search-open-btn');
+let searchBtns = document.querySelectorAll('.search-open-btn');
 let searchLines = document.querySelectorAll('.search-line');
 
-for (let i = 0; i < searchOpenBtns.length; i++) {
-    searchOpenBtns[i].addEventListener('click', () => {
-        if (searchLines[i].style.width == '' || searchLines[i].style.width == '0px') {
-            searchLines[i].style.width = '280px';
-            searchLines[i].style.padding = '11px 1px';
-        } else {
-            searchLines[i].style.width = '0px';
-            searchLines[i].style.padding = '11px 0';
-        }
+for (let i = 0; i < searchBtns.length; i++) {
+    searchBtns[i].addEventListener('click', function openSearchLine() {
+        searchLines[i].style.width = '280px';
+        searchLines[i].style.padding = '11px 1px';
+        searchBtns[i].removeEventListener('click', openSearchLine);
+        searchBtns[i].addEventListener('click', function searchItems() {
+            console.log(searchLines[i].value);
+        })
     })
 }
 
@@ -136,6 +112,26 @@ document.addEventListener('click', event => {
         }
     }
 })
+
+//нижняя полоса главного меню
+
+
+let blackMenus = document.querySelectorAll('.menu-black__menu');
+
+for (let i = 0; i < blackMenus.length; i++) {
+    let blackMenuLists = blackMenus[i].querySelectorAll('.menu-black__list');
+    let blackMenuLine = blackMenus[i].querySelector('.menu-black__line');
+    for(let j = 0; j < blackMenuLists.length; j++) {
+        blackMenuLists[j].addEventListener('mouseover', () => {
+            blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
+            if (j === (blackMenuLists.length - 1)) {
+                blackMenuLine.style.width = `${blackMenuLists[j].querySelector('img').offsetWidth}px`;
+            } else {
+                blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth}px`;
+            }
+        })
+    }
+}
 
 let footerShowBtns = document.querySelectorAll('.footer__show-btn');
 let footerLists = document.querySelectorAll('.footer__lists');
