@@ -5,43 +5,82 @@ document.querySelector('.wrapper').classList.add('loaded');
 
 //office-slider
 
-let officeSlideCurrent = document.querySelector('.office-slider__current-slide');
-let officeSlidesTotal = document.querySelector('.office-slider__total-slides');
+let officeSlideCurrent = document.querySelectorAll('.office-slider__current-slide');
+let officeSlidesTotal = document.querySelectorAll('.office-slider__total-slides');
 let officeSlides = document.querySelectorAll('.office-slider__slide');
-let officeSliderFirstSlide = document.querySelector('.office-slider__first-slide')
+let officeSliderFirstSlide = document.querySelectorAll('.office-slider__first-slide');
 
-officeSlidesTotal.textContent = `${officeSlides.length}`;
+for (let i = 0; i < officeSlidesTotal.length; i++) {
+    officeSlidesTotal[i].textContent = `${officeSlides.length/officeSlidesTotal.length}`;
+    officeSlideCurrent[i].textContent = '1';
+}
 
-officeSlideCurrent.textContent = '1';
 
-let officeSliderPrev = document.querySelector('.office-slider__arrow-left');
-let officeSliderNext = document.querySelector('.office-slider__arrow-right');
+let officeSliderPrev = document.querySelectorAll('.office-slider__arrow-left');
+let officeSliderNext = document.querySelectorAll('.office-slider__arrow-right');
 
-officeSliderNext.addEventListener('click', () => {
-    if (officeSlideCurrent.textContent === officeSlidesTotal.textContent) {
-        officeSliderFirstSlide.style.marginLeft = '0%';
-        officeSlideCurrent.textContent = '1';
-    } else {
-        officeSliderFirstSlide.style.marginLeft = `${+(officeSliderFirstSlide.style.marginLeft.slice(0, -1)) - 100}%`;
-        officeSlideCurrent.textContent = `${+officeSlideCurrent.textContent + 1}`;
-    }
-})
+for (let i = 0; i < officeSliderNext.length; i++) {
+    officeSliderNext[i].addEventListener('click', () => {
+        if (officeSlideCurrent[i].textContent === officeSlidesTotal[i].textContent) {
+            officeSliderFirstSlide[i].style.marginLeft = '0%';
+            officeSlideCurrent[i].textContent = '1';
+        } else {
+            officeSliderFirstSlide[i].style.marginLeft = `${+(officeSliderFirstSlide[i].style.marginLeft.slice(0, -1)) - 100}%`;
+            officeSlideCurrent[i].textContent = `${+officeSlideCurrent[i].textContent + 1}`;
+        }
+    })
+}
+for (let i = 0; i < officeSliderPrev.length; i++) {
+    officeSliderPrev[i].addEventListener('click', () => {
+        if (officeSlideCurrent[i].textContent === '1') {
+            officeSliderFirstSlide[i].style.marginLeft = `${(officeSlides.length / officeSlidesTotal.length - 1) * (-100)}%`;
+            officeSlideCurrent[i].textContent = officeSlidesTotal[i].textContent;
+        } else {
+            officeSliderFirstSlide[i].style.marginLeft = `${+(officeSliderFirstSlide[i].style.marginLeft.slice(0, -1)) + 100}%`;
+            officeSlideCurrent[i].textContent = `${+officeSlideCurrent[i].textContent - 1}`;
+        }
+    })
+}
 
-officeSliderPrev.addEventListener('click', () => {
-    if (officeSlideCurrent.textContent === '1') {
-        officeSliderFirstSlide.style.marginLeft = `${(officeSlides.length - 1)*(-100)}%`;
-        officeSlideCurrent.textContent = officeSlidesTotal.textContent;
-    } else {
-        officeSliderFirstSlide.style.marginLeft = `${+(officeSliderFirstSlide.style.marginLeft.slice(0, -1)) + 100}%`;
-        officeSlideCurrent.textContent = `${+officeSlideCurrent.textContent - 1}`;
-    }
-})
+//slider
+
+let sliders = document.querySelectorAll('.slider');
+
+for(let i = 0; i < sliders.length; i++) {
+    let sliderLength = sliders[i].querySelectorAll('.slider__slide').length;
+    let firstSlide = sliders[i].querySelector('.slider__first-slide');
+    let currentSlide = sliders[i].querySelector('.slider__current-slide');
+    let totalSlides = sliders[i].querySelector('.slider__total-slides');
+    let arrowLeft = sliders[i].querySelector('.slider__arrow-left');
+    let arrowRight = sliders[i].querySelector('.slider__arrow-right');
+    sliders[i].style.maxWidth = `${sliders[i].offsetWidth / sliderLength}px`;
+    currentSlide.textContent = '1';
+    totalSlides.textContent = `${sliderLength}`;
+    arrowLeft.addEventListener('click', () => {
+        if (currentSlide.textContent == '1') {
+            currentSlide.textContent = `${sliderLength}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+        } else {
+            currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+        }
+    });
+    arrowRight.addEventListener('click', () => {
+        if (currentSlide.textContent == `${sliderLength}`) {
+            currentSlide.textContent = '1';
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+        } else {
+            currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+        }
+    });
+}
 
 //search-on-map-btn
 
 let searchOnMapOpenBtns = document.querySelectorAll('.open-search-on-map');
 let searchOnMapLines = document.querySelectorAll('.search-on-map');
-let officeDescriptions = document.querySelectorAll('.office-desc')
+let officeDescriptions = document.querySelectorAll('.office-desc');
 
 for (let i = 0; i < searchOnMapOpenBtns.length; i++) {
     searchOnMapOpenBtns[i].addEventListener('click', () => {
@@ -69,13 +108,34 @@ for (let i = 0; i < searchOpenBtns.length; i++) {
     searchOpenBtns[i].addEventListener('click', () => {
         if (searchLines[i].style.width == '' || searchLines[i].style.width == '0px') {
             searchLines[i].style.width = '280px';
-            searchLines.style.padding = '11px 1px';
+            searchLines[i].style.padding = '11px 1px';
         } else {
             searchLines[i].style.width = '0px';
             searchLines[i].style.padding = '11px 0';
         }
     })
 }
+
+//favorites
+
+let favoritesOpenBtns = document.querySelectorAll('.favorites-drop-btn');
+let favoritesBlock = document.querySelectorAll('.favorites');
+
+for (let i = 0; i < favoritesOpenBtns.length; i++) {
+    favoritesBlock[i].classList.add('hidden');
+    favoritesOpenBtns[i].addEventListener('click', () => {
+        favoritesBlock[i].classList.toggle('hidden');
+    })
+}
+
+document.addEventListener('click', event => {
+    let target = event.target;
+    for (let i = 0; i < favoritesOpenBtns.length; i++) {
+        if (!(target === favoritesOpenBtns[i] || target === favoritesBlock[i]) && !(favoritesOpenBtns[i].contains(target) || favoritesBlock[i].contains(target)) && !(favoritesBlock[i].classList.contains('hidden'))) {
+            favoritesBlock[i].classList.toggle('hidden');
+        }
+    }
+})
 
 let footerShowBtns = document.querySelectorAll('.footer__show-btn');
 let footerLists = document.querySelectorAll('.footer__lists');
@@ -98,8 +158,4 @@ for( let i = 0; i < footerShowBtns.length; i++) {
             footerLists[i].style.maxHeight = '253px';
         }
     })
-}
-
-function preventDef(element) {
-    element.preventDefault()
 }
