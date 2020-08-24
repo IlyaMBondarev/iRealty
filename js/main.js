@@ -113,7 +113,7 @@ document.addEventListener('click', event => {
     }
 })
 
-//нижняя полоса главного меню
+//нижняя полоса главного меню и фон выпадающих меню
 
 
 let blackMenus = document.querySelectorAll('.menu-black__menu');
@@ -131,8 +131,11 @@ for (let i = 0; i < blackMenus.length; i++) {
             }
         })
     }
+    let blackMenuBackgrounds = blackMenus[i].querySelectorAll('.menu-black__drop-bg');
+    for(let j = 0; j < blackMenuBackgrounds.length; j++) {
+        blackMenuBackgrounds[j].style.left = `-${blackMenuLists[j].offsetLeft}px`;
+    }
 }
-
 let footerShowBtns = document.querySelectorAll('.footer__show-btn');
 let footerLists = document.querySelectorAll('.footer__lists');
 let footerArrowsUp = document.querySelectorAll('.footer__arrow-up');
