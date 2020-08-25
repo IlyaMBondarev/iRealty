@@ -154,6 +154,7 @@ let favoritesBlock = document.querySelectorAll('.favorites');
 
 for (let i = 0; i < favoritesOpenBtns.length; i++) {
     favoritesBlock[i].classList.add('hidden');
+    favoritesBlock[i].style.zIndex = '100';
     favoritesOpenBtns[i].addEventListener('click', () => {
         favoritesBlock[i].classList.toggle('hidden');
     })

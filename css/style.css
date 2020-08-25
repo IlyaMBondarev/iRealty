@@ -479,7 +479,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 40px;
   right: -63px;
-  z-index: 100;
+  z-index: -1;
   box-shadow: -6px 0 6px 1px rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   background-color: #ffffff;
