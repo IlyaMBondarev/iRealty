@@ -136,16 +136,42 @@ for(let i = 0; i < superoffersSliders.length; i++) {
 let searchBtns = document.querySelectorAll('.search-open-btn');
 let searchLines = document.querySelectorAll('.search-line');
 
-for (let i = 0; i < searchBtns.length; i++) {
-    searchBtns[i].addEventListener('click', function openSearchLine() {
-        searchLines[i].style.width = '280px';
-        searchLines[i].style.padding = '11px 1px';
-        searchBtns[i].removeEventListener('click', openSearchLine);
-        searchBtns[i].addEventListener('click', function searchItems() {
-            console.log(searchLines[i].value);
-        })
+
+searchBtns[0].addEventListener('click', function openSearchLine() {
+    searchLines[0].style.width = '280px';
+    searchLines[0].style.padding = '11px 1px';
+    searchBtns[0].removeEventListener('click', openSearchLine);
+    searchBtns[0].addEventListener('click', function searchItems() {
+        console.log(searchLines[0].value);
     })
-}
+})
+
+let stickyBySearchLineClosed = document.querySelector('.sticky-closing-by-search-line')
+
+searchBtns[1].addEventListener('click', function openFooterSearchLine() {
+    stickyBySearchLineClosed.style.opacity = '0';
+    stickyBySearchLineClosed.style.zIndex = '-1';
+    searchLines[1].style.width = '145px';
+    searchLines[1].style.padding = '11px 1px';
+    searchBtns[1].removeEventListener('click', openFooterSearchLine);
+    searchBtns[1].addEventListener('click', function searchFooterItems() {
+        console.log(searchLines[1].value);
+    })
+})
+
+let footerBySearchLineClosed = document.querySelector('.closing-by-search-line')
+
+searchBtns[2].addEventListener('click', function openFooterSearchLine() {
+    footerBySearchLineClosed.style.opacity = '0';
+    footerBySearchLineClosed.style.zIndex = '-1';
+    searchLines[2].style.width = '145px';
+    searchLines[2].style.padding = '11px 1px';
+    searchBtns[2].removeEventListener('click', openFooterSearchLine);
+    searchBtns[2].addEventListener('click', function searchFooterItems() {
+        console.log(searchLines[1].value);
+    })
+})
+
 
 //favorites
 
@@ -177,6 +203,7 @@ let blackMenus = document.querySelectorAll('.menu-black__menu');
 for (let i = 0; i < blackMenus.length; i++) {
     let blackMenuLists = blackMenus[i].querySelectorAll('.menu-black__list');
     let blackMenuLine = blackMenus[i].querySelector('.menu-black__line');
+    let blackMenuBackgrounds = blackMenus[i].querySelectorAll('.menu-black__drop-bg');
     for (let j = 0; j < blackMenuLists.length; j++) {
         blackMenuLists[j].addEventListener('mouseover', () => {
             blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
@@ -191,18 +218,58 @@ for (let i = 0; i < blackMenus.length; i++) {
                 blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 15}px`;
             }
         })
+        if (j !== blackMenuLists.length - 1) {
+            blackMenuLists[j].querySelector('.menu-black__link').addEventListener('mouseover', () => {
+                for (let k = 0; k < blackMenuLists.length - 2; k++) {
+                    if (blackMenuBackgrounds[k].style.zIndex === '100') {
+                        blackMenuBackgrounds[k].style.zIndex = '-1';
+                    }
+                }
+                if (j !== blackMenuLists.length - 2) {
+                    blackMenuBackgrounds[j].style.zIndex = '100';
+                }
+            })
+        }
     }
-    let blackMenuBackgrounds = blackMenus[i].querySelectorAll('.menu-black__drop-bg');
     for (let j = 0; j < blackMenuBackgrounds.length; j++) {
         blackMenuBackgrounds[j].style.left = `-${blackMenuLists[j].offsetLeft}px`;
         blackMenuBackgrounds[j].querySelector('.drop').addEventListener('mouseout', (event) => {
-            let target = event.target;
-            if (!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target))) {
+            let target = event.relatedTarget;
+            if ((!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target)))) {
                 blackMenuBackgrounds[j].style.zIndex = '-1';
             }
         })
     }
 }
+
+// Get the navbar
+let menuBlackHeader = document.querySelector(".menu-black-header");
+let menuBlackFooter = document.querySelector(".menu-black-footer");
+let stickyMenu = document.querySelector(".sticky-menu");
+let pageContent = document.querySelector('.content');
+
+// Get the offset position of the navbar
+let stickyTop = menuBlackHeader.offsetTop;
+let stickyBottom = menuBlackFooter.offsetTop;
+
+if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
+    menuBlackHeader.classList.add('hidden');
+    stickyMenu.classList.remove("hidden");
+    pageContent.style.paddingTop = `${stickyMenu.offsetHeight}px`;
+}
+
+// When the user scrolls the page, execute myFunction
+window.addEventListener('scroll', () => {
+    if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
+        menuBlackHeader.classList.add('hidden');
+        stickyMenu.classList.remove("hidden");
+        pageContent.style.paddingTop = `${stickyMenu.offsetHeight}px`;
+    } else {
+        menuBlackHeader.classList.remove('hidden');
+        stickyMenu.classList.add("hidden");
+        pageContent.style.paddingTop = '0';
+    }
+});
 let footerShowBtns = document.querySelectorAll('.footer__show-btn');
 let footerLists = document.querySelectorAll('.footer__lists');
 let footerArrowsUp = document.querySelectorAll('.footer__arrow-up');
