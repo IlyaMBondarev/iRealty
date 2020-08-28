@@ -2,7 +2,6 @@
 document.querySelector('.wrapper').classList.add('loaded');
 
 
-
 //office-slider
 
 let officeSlideCurrent = document.querySelectorAll('.office-slider__current-slide');
@@ -11,7 +10,7 @@ let officeSlides = document.querySelectorAll('.office-slider__slide');
 let officeSliderFirstSlide = document.querySelectorAll('.office-slider__first-slide');
 
 for (let i = 0; i < officeSlidesTotal.length; i++) {
-    officeSlidesTotal[i].textContent = `${officeSlides.length/officeSlidesTotal.length}`;
+    officeSlidesTotal[i].textContent = `${officeSlides.length / officeSlidesTotal.length}`;
     officeSlideCurrent[i].textContent = '1';
 }
 
@@ -46,7 +45,7 @@ for (let i = 0; i < officeSliderPrev.length; i++) {
 
 let sliders = document.querySelectorAll('.slider');
 
-for(let i = 0; i < sliders.length; i++) {
+for (let i = 0; i < sliders.length; i++) {
     let sliderLength = sliders[i].querySelectorAll('.slider__slide').length;
     let firstSlide = sliders[i].querySelector('.slider__first-slide');
     let currentSlide = sliders[i].querySelector('.slider__current-slide');
@@ -59,19 +58,19 @@ for(let i = 0; i < sliders.length; i++) {
     arrowLeft.addEventListener('click', () => {
         if (currentSlide.textContent == '1') {
             currentSlide.textContent = `${sliderLength}`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         } else {
             currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         }
     });
     arrowRight.addEventListener('click', () => {
         if (currentSlide.textContent == `${sliderLength}`) {
             currentSlide.textContent = '1';
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         } else {
             currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         }
     });
 }
@@ -80,7 +79,7 @@ for(let i = 0; i < sliders.length; i++) {
 
 let superoffersSliders = document.querySelectorAll('.superoffers-slider');
 
-for(let i = 0; i < superoffersSliders.length; i++) {
+for (let i = 0; i < superoffersSliders.length; i++) {
     let sliderItems = superoffersSliders[i].querySelectorAll('.item');
     let sliderLength = sliderItems.length;
     let firstSlide = superoffersSliders[i].querySelector('.first-item');
@@ -91,8 +90,8 @@ for(let i = 0; i < superoffersSliders.length; i++) {
     let sliderImages = superoffersSliders[i].querySelector('.superoffers-slider__right');
     let sliderImagesFirst = sliderImages.querySelector('.first-slider');
     currentSlide.textContent = '5';
-    sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
-    firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+    sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+    firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
     sliderImages.style.maxWidth = `${sliderImagesFirst.offsetWidth}px`
     totalSlides.textContent = `${sliderLength}`;
     arrowLeft.addEventListener('click', () => {
@@ -101,12 +100,12 @@ for(let i = 0; i < superoffersSliders.length; i++) {
         }
         if (currentSlide.textContent == '1') {
             currentSlide.textContent = `${sliderLength}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         } else {
             currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         }
         if (currentSlide.textContent == '1') {
             arrowLeft.style.zIndex = '-1';
@@ -118,12 +117,12 @@ for(let i = 0; i < superoffersSliders.length; i++) {
         }
         if (currentSlide.textContent == `${sliderLength}`) {
             currentSlide.textContent = '1';
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         } else {
             currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1)*(-100)}%`;
+            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
         }
         if (currentSlide.textContent == '15') {
             arrowRight.style.zIndex = '-1';
@@ -205,51 +204,45 @@ for (let i = 0; i < blackMenus.length; i++) {
     let blackMenuLine = blackMenus[i].querySelector('.menu-black__line');
     let blackMenuBackgrounds = blackMenus[i].querySelectorAll('.menu-black__drop-bg');
     for (let j = 0; j < blackMenuLists.length; j++) {
-        blackMenuLists[j].addEventListener('mouseover', () => {
-            blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
-            if (j === (blackMenuLists.length - 1)) {
-                blackMenuLine.style.width = `${blackMenuLists[j].querySelector('img').offsetWidth}px`;
-                blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 4}px`;
-            } else if (j === 0) {
-                blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 15}px`;
+        blackMenuLists[j].addEventListener('mouseover', (event) => {
+            let target = event.target;
+            if (!(target === blackMenuLine)) {
                 blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
-            } else {
-                blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 30}px`;
-                blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 15}px`;
+                if (j === (blackMenuLists.length - 1)) {
+                    blackMenuLine.style.width = `${blackMenuLists[j].querySelector('img').offsetWidth}px`;
+                    blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 4}px`;
+                } else if (j === 0) {
+                    blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 15}px`;
+                    blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
+                } else {
+                    blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 30}px`;
+                    blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 15}px`;
+                }
             }
         })
         if (j !== blackMenuLists.length - 1) {
-            blackMenuLists[j].querySelector('.menu-black__link').addEventListener('mouseover', () => {
-                for (let k = 0; k < blackMenuLists.length - 2; k++) {
-                    if (blackMenuBackgrounds[k].style.zIndex === '100') {
-                        blackMenuBackgrounds[k].style.zIndex = '-1';
+            blackMenuLists[j].querySelector('.menu-black__link').addEventListener('mouseover', (event) => {
+                let target = event.target;
+                if (!(target === blackMenuLine)) {
+                    for (let k = 0; k < blackMenuLists.length - 2; k++) {
+                        if (blackMenuBackgrounds[k].style.zIndex === '100') {
+                            blackMenuBackgrounds[k].style.zIndex = '-1';
+                        }
                     }
-                }
-                if (j !== blackMenuLists.length - 2) {
-                    blackMenuBackgrounds[j].style.zIndex = '100';
+                    if (j !== blackMenuLists.length - 2) {
+                        blackMenuBackgrounds[j].style.zIndex = '100';
+                    }
                 }
             })
             blackMenuLists[j].addEventListener('mouseout', (event) => {
                 let target = event.relatedTarget;
-                if (target !== blackMenuLists[j] && !(blackMenuLists[j].contains(target)) && (j !== blackMenuLists.length - 2)) {
+                if ((target !== blackMenuLists[j]) && (target !== blackMenuLine) && !(blackMenuLists[j].contains(target)) && (j !== blackMenuLists.length - 2)) {
                     blackMenuBackgrounds[j].style.zIndex = '-1';
                 }
             })
         }
-    let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
-            config = {
-                attributes: true,
-                attributeFilter: ['offsetLeft']
-            };
-        let observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                blackMenuBackgrounds[j].style.left = `${-(mutation.target.offsetLeft)}px`;
-            });
-        });
-        observer.observe(blackMenuLists[j], config);
     }
     for (let j = 0; j < blackMenuBackgrounds.length; j++) {
-        blackMenuBackgrounds[j].style.left = `-${blackMenuLists[j].offsetLeft}px`;
         blackMenuBackgrounds[j].querySelector('.drop').addEventListener('mouseout', (event) => {
             let target = event.relatedTarget;
             if ((!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target)))) {
@@ -260,7 +253,6 @@ for (let i = 0; i < blackMenus.length; i++) {
 }
 
 
-
 //sticky menu
 
 let menuBlackHeader = document.querySelector(".menu-black-header");
@@ -269,7 +261,7 @@ let stickyMenu = document.querySelector(".sticky-menu");
 let pageContent = document.querySelector('.content');
 
 let stickyTop = menuBlackHeader.offsetTop;
-let stickyBottom = menuBlackFooter.offsetTop;
+let stickyBottom = menuBlackFooter.offsetParent.offsetTop;
 
 if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
     menuBlackHeader.classList.add('hidden');

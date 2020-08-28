@@ -102,6 +102,7 @@ body {
 }
 
 .menu-black {
+  position: relative;
   background-color: #1d1c1c;
   box-shadow: -5px 0 13px rgba(0, 0, 0, 0.07);
 }
@@ -118,10 +119,7 @@ body {
 .menu-black__menu:hover .menu-black__line {
   opacity: 1;
 }
-.menu-black__list {
-  position: relative;
-}
-.menu-black__list > span {
+.menu-black__list > .menu-black__link > span {
   position: absolute;
   bottom: 5px;
   left: 0;
@@ -131,7 +129,7 @@ body {
   z-index: 300;
   background-color: transparent;
 }
-.menu-black__list > .menu-black__line {
+.menu-black__list > .menu-black__link > .menu-black__line {
   width: 0;
   z-index: 200;
   background-color: #49bdf6;
@@ -145,6 +143,7 @@ body {
   padding-left: 0;
 }
 .menu-black__list:last-of-type {
+  position: relative;
   padding-left: 4px;
   margin-right: 0;
   padding-right: 10px;
@@ -161,6 +160,7 @@ body {
   width: 30px;
 }
 .menu-black__link {
+  position: relative;
   display: block;
   color: #ffffff;
   font-size: 14px;
@@ -188,6 +188,9 @@ body {
   line-height: unset;
   display: none;
 }
+.menu-black__search-on-map:hover {
+  color: #4abef7;
+}
 .menu-black__drop-bg {
   position: absolute;
   width: 100vw;
@@ -195,6 +198,7 @@ body {
   background-color: rgba(29, 28, 28, 0.75);
   border-radius: 5px;
   top: 68px;
+  left: 0;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.2s linear;
@@ -1083,6 +1087,10 @@ body {
   margin-right: 8px;
 }
 
+.content {
+  transition: padding-top 0s linear;
+}
+
 .main-slider {
   position: relative;
 }
@@ -1479,7 +1487,7 @@ body {
   height: 3px;
   width: 30px;
   box-shadow: -5px 0 35px rgba(0, 0, 0, 0.07);
-  border-radius: 2px;
+  border-radius: 1px;
   background-color: #2780cc;
   transition: width 0.2s linear;
 }
