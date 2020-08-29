@@ -52,9 +52,15 @@ for (let i = 0; i < sliders.length; i++) {
     let totalSlides = sliders[i].querySelector('.slider__total-slides');
     let arrowLeft = sliders[i].querySelector('.slider__arrow-left');
     let arrowRight = sliders[i].querySelector('.slider__arrow-right');
-    sliders[i].style.maxWidth = `${sliders[i].offsetWidth / sliderLength}px`;
+    let slideCountsBlock = sliders[i].querySelector('.slider__slide-counts');
+    sliders[i].style.maxWidth = `${sliders[i].scrollWidth / sliderLength}px`;
     currentSlide.textContent = '1';
     totalSlides.textContent = `${sliderLength}`;
+    if (sliderLength === 1) {
+        slideCountsBlock.classList.add('hidden');
+        arrowLeft.classList.add('hidden');
+        arrowRight.classList.add('hidden');
+    }
     arrowLeft.addEventListener('click', () => {
         if (currentSlide.textContent == '1') {
             currentSlide.textContent = `${sliderLength}`;
@@ -269,7 +275,6 @@ if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offse
     pageContent.style.paddingTop = `${stickyMenu.offsetHeight}px`;
 }
 
-// When the user scrolls the page, execute myFunction
 window.addEventListener('scroll', () => {
     if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
         menuBlackHeader.classList.add('hidden');
