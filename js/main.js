@@ -52,12 +52,10 @@ for (let i = 0; i < sliders.length; i++) {
     let totalSlides = sliders[i].querySelector('.slider__total-slides');
     let arrowLeft = sliders[i].querySelector('.slider__arrow-left');
     let arrowRight = sliders[i].querySelector('.slider__arrow-right');
-    let slideCountsBlock = sliders[i].querySelector('.slider__slide-counts');
     sliders[i].style.maxWidth = `${sliders[i].scrollWidth / sliderLength}px`;
     currentSlide.textContent = '1';
     totalSlides.textContent = `${sliderLength}`;
     if (sliderLength === 1) {
-        slideCountsBlock.classList.add('hidden');
         arrowLeft.classList.add('hidden');
         arrowRight.classList.add('hidden');
     }
@@ -97,22 +95,23 @@ for (let i = 0; i < superoffersSliders.length; i++) {
     let sliderImagesFirst = sliderImages.querySelector('.first-slider');
     currentSlide.textContent = '5';
     sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-    firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+    sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+    sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+    sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
     sliderImages.style.maxWidth = `${sliderImagesFirst.offsetWidth}px`
     totalSlides.textContent = `${sliderLength}`;
     arrowLeft.addEventListener('click', () => {
         if (currentSlide.textContent == '15') {
             arrowRight.style.zIndex = 'inherit';
         }
-        if (currentSlide.textContent == '1') {
-            currentSlide.textContent = `${sliderLength}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-        } else {
-            currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-        }
+        sliderItems[currentSlide.textContent - 1].style.opacity = '0';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'hidden';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = '-1';
+        currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
+        sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
         if (currentSlide.textContent == '1') {
             arrowLeft.style.zIndex = '-1';
         }
@@ -121,16 +120,15 @@ for (let i = 0; i < superoffersSliders.length; i++) {
         if (currentSlide.textContent == '1') {
             arrowLeft.style.zIndex = 'inherit';
         }
+        sliderItems[currentSlide.textContent - 1].style.opacity = '0';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'hidden';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = '-1';
+        currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
+        sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
         if (currentSlide.textContent == `${sliderLength}`) {
-            currentSlide.textContent = '1';
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-        } else {
-            currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
-            sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
-        }
-        if (currentSlide.textContent == '15') {
             arrowRight.style.zIndex = '-1';
         }
     });
@@ -141,42 +139,96 @@ for (let i = 0; i < superoffersSliders.length; i++) {
 let searchBtns = document.querySelectorAll('.search-open-btn');
 let searchLines = document.querySelectorAll('.search-line');
 
+// search header
 
-searchBtns[0].addEventListener('click', function openSearchLine() {
+function searchItems() {
+    console.log(searchLines[0].value);
+}
+
+function openSearchLine() {
     searchLines[0].style.width = '280px';
     searchLines[0].style.padding = '11px 1px';
     searchBtns[0].removeEventListener('click', openSearchLine);
-    searchBtns[0].addEventListener('click', function searchItems() {
-        console.log(searchLines[0].value);
-    })
+    searchBtns[0].addEventListener('click', searchItems);
+}
+
+searchBtns[0].addEventListener('click', openSearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[0] && target !== searchLines[0] && !(searchBtns[0].contains(target)) && !(searchLines[0].contains(target))) {
+        searchLines[0].style.width = '0px';
+        searchLines[0].style.padding = '11px 0px';
+        searchBtns[0].addEventListener('click', openSearchLine);
+        searchBtns[0].removeEventListener('click', searchItems);
+    }
 })
+
+//search sticky
 
 let stickyBySearchLineClosed = document.querySelector('.sticky-closing-by-search-line')
 
-searchBtns[1].addEventListener('click', function openFooterSearchLine() {
+function searchStickyItems() {
+    console.log(searchLines[1].value);
+}
+
+function openStickySearchLine() {
     stickyBySearchLineClosed.style.opacity = '0';
     stickyBySearchLineClosed.style.zIndex = '-1';
+    stickyBySearchLineClosed.style.visibility = 'hidden';
     searchLines[1].style.width = '145px';
     searchLines[1].style.padding = '11px 1px';
-    searchBtns[1].removeEventListener('click', openFooterSearchLine);
-    searchBtns[1].addEventListener('click', function searchFooterItems() {
-        console.log(searchLines[1].value);
-    })
+    searchBtns[1].removeEventListener('click', openStickySearchLine);
+    searchBtns[1].addEventListener('click', searchStickyItems)
+}
+
+searchBtns[1].addEventListener('click', openStickySearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[1] && target !== searchLines[1] && !(searchBtns[1].contains(target)) && !(searchLines[1].contains(target))) {
+        stickyBySearchLineClosed.style.opacity = '1';
+        stickyBySearchLineClosed.style.zIndex = 'inherit';
+        stickyBySearchLineClosed.style.visibility = 'visible';
+        searchLines[1].style.width = '0px';
+        searchLines[1].style.padding = '11px 0px';
+        searchBtns[1].addEventListener('click', openStickySearchLine);
+        searchBtns[1].removeEventListener('click', searchStickyItems);
+    }
 })
+
+//search footer
 
 let footerBySearchLineClosed = document.querySelector('.closing-by-search-line')
 
-searchBtns[2].addEventListener('click', function openFooterSearchLine() {
+function searchFooterItems() {
+    console.log(searchLines[1].value);
+}
+
+function openFooterSearchLine() {
     footerBySearchLineClosed.style.opacity = '0';
     footerBySearchLineClosed.style.zIndex = '-1';
+    footerBySearchLineClosed.style.visibility = 'visible';
     searchLines[2].style.width = '145px';
     searchLines[2].style.padding = '11px 1px';
     searchBtns[2].removeEventListener('click', openFooterSearchLine);
-    searchBtns[2].addEventListener('click', function searchFooterItems() {
-        console.log(searchLines[1].value);
-    })
-})
+    searchBtns[2].addEventListener('click', searchFooterItems)
+}
 
+searchBtns[2].addEventListener('click', openFooterSearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[2] && target !== searchLines[2] && !(searchBtns[2].contains(target)) && !(searchLines[2].contains(target))) {
+        footerBySearchLineClosed.style.opacity = '1';
+        footerBySearchLineClosed.style.zIndex = 'inherit';
+        footerBySearchLineClosed.style.visibility = 'visible';
+        searchLines[2].style.width = '0px';
+        searchLines[2].style.padding = '11px 0px';
+        searchBtns[2].addEventListener('click', openFooterSearchLine);
+        searchBtns[2].removeEventListener('click', searchFooterItems);
+    }
+})
 
 //favorites
 
@@ -184,10 +236,16 @@ let favoritesOpenBtns = document.querySelectorAll('.favorites-drop');
 let favoritesBlock = document.querySelectorAll('.favorites');
 
 for (let i = 0; i < favoritesOpenBtns.length; i++) {
-    favoritesBlock[i].classList.add('hidden');
-    favoritesBlock[i].style.zIndex = '100';
     favoritesOpenBtns[i].addEventListener('click', () => {
-        favoritesBlock[i].classList.toggle('hidden');
+        if (favoritesBlock[i].style.opacity == '0' || favoritesBlock[i].style.opacity == '') {
+            favoritesBlock[i].style.zIndex = '100';
+            favoritesBlock[i].style.opacity = '1';
+            favoritesBlock[i].style.visibility = 'visible';
+        } else {
+            favoritesBlock[i].style.zIndex = '-1';
+            favoritesBlock[i].style.opacity = '0';
+            favoritesBlock[i].style.visibility = 'hidden';
+        }
     })
 }
 
@@ -195,7 +253,9 @@ document.addEventListener('click', event => {
     let target = event.target;
     for (let i = 0; i < favoritesOpenBtns.length; i++) {
         if (!(target === favoritesOpenBtns[i] || target === favoritesBlock[i]) && !(favoritesOpenBtns[i].contains(target) || favoritesBlock[i].contains(target)) && !(favoritesBlock[i].classList.contains('hidden'))) {
-            favoritesBlock[i].classList.toggle('hidden');
+            favoritesBlock[i].style.zIndex = '-1';
+            favoritesBlock[i].style.opacity = '0';
+            favoritesBlock[i].style.visibility = 'hidden';
         }
     }
 })
@@ -226,7 +286,7 @@ for (let i = 0; i < blackMenus.length; i++) {
                 }
             }
         })
-        if (j !== blackMenuLists.length - 1) {
+        if ((j !== blackMenuLists.length - 1) && (i !== blackMenus.length - 1)) {
             blackMenuLists[j].querySelector('.menu-black__link').addEventListener('mouseover', (event) => {
                 let target = event.target;
                 if (!(target === blackMenuLine)) {
@@ -248,13 +308,15 @@ for (let i = 0; i < blackMenus.length; i++) {
             })
         }
     }
-    for (let j = 0; j < blackMenuBackgrounds.length; j++) {
-        blackMenuBackgrounds[j].querySelector('.drop').addEventListener('mouseout', (event) => {
-            let target = event.relatedTarget;
-            if ((!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target)))) {
-                blackMenuBackgrounds[j].style.zIndex = '-1';
-            }
-        })
+    if (i !== blackMenus.length - 1) {
+        for (let j = 0; j < blackMenuBackgrounds.length; j++) {
+            blackMenuBackgrounds[j].querySelector('.drop').addEventListener('mouseout', (event) => {
+                let target = event.relatedTarget;
+                if ((!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target)))) {
+                    blackMenuBackgrounds[j].style.zIndex = '-1';
+                }
+            })
+        }
     }
 }
 
@@ -264,26 +326,19 @@ for (let i = 0; i < blackMenus.length; i++) {
 let menuBlackHeader = document.querySelector(".menu-black-header");
 let menuBlackFooter = document.querySelector(".menu-black-footer");
 let stickyMenu = document.querySelector(".sticky-menu");
-let pageContent = document.querySelector('.content');
 
 let stickyTop = menuBlackHeader.offsetTop;
 let stickyBottom = menuBlackFooter.offsetParent.offsetTop;
 
-if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
-    menuBlackHeader.classList.add('hidden');
-    stickyMenu.classList.remove("hidden");
-    pageContent.style.paddingTop = `${stickyMenu.offsetHeight}px`;
+if ((window.pageYOffset >= (stickyTop + 550)) && (window.pageYOffset <= (stickyBottom - 550))) {
+    stickyMenu.style.top = '0%';
 }
 
 window.addEventListener('scroll', () => {
-    if ((window.pageYOffset >= stickyTop) && (window.pageYOffset >= stickyMenu.offsetTop) && ((window.pageYOffset + stickyMenu.offsetHeight) <= stickyBottom) && ((window.pageYOffset + menuBlackHeader.offsetHeight) <= stickyBottom)) {
-        menuBlackHeader.classList.add('hidden');
-        stickyMenu.classList.remove("hidden");
-        pageContent.style.paddingTop = `${stickyMenu.offsetHeight}px`;
+    if ((window.pageYOffset >= (stickyTop + 550)) && (window.pageYOffset <= (stickyBottom - 550))) {
+        stickyMenu.style.top = '0%';
     } else {
-        menuBlackHeader.classList.remove('hidden');
-        stickyMenu.classList.add("hidden");
-        pageContent.style.paddingTop = '0';
+        stickyMenu.style.top = '-100%';
     }
 });
 let footerShowBtns = document.querySelectorAll('.footer__show-btn');
@@ -308,13 +363,21 @@ for( let i = 0; i < footerShowBtns.length; i++) {
         }
     })
 }
-function ibg(){
-    let ibg = document.querySelectorAll(".ibg");
-    for (let i = 0; i < ibg.length; i++) {
-        if(ibg[i].querySelector('img')){
-            ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+//new-items-slider
+
+let newItemsBlocks = document.querySelectorAll('.new-items__items');
+let newItemsArrowLeft = document.querySelectorAll('.new-items__arrow-left');
+let newItemsArrowRight = document.querySelectorAll('.new-items__arrow-right');
+let newItemsLeftItem = document.querySelectorAll('.new-items__item-active');
+
+
+for(let i = 0; i < newItemsBlocks.length; i++) {
+    let newItems = newItemsBlocks[i].querySelectorAll('.new-items__item');
+    newItemsArrowLeft[i].addEventListener('click', () => {
+        if (!(newItems[0].classList.contains('new-items__item-active'))) {
+            newItemsBlocks.style.marginLeft;
         }
-    }
+    })
 }
 
-ibg();
+
