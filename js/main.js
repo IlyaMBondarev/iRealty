@@ -1,1 +1,1071 @@
-!function(e){var t={};function l(i){if(t[i])return t[i].exports;var n=t[i]={i:i,l:!1,exports:{}};return e[i].call(n.exports,n,n.exports,l),n.l=!0,n.exports}l.m=e,l.c=t,l.d=function(e,t,i){l.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:i})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,t){if(1&t&&(e=l(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var i=Object.create(null);if(l.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)l.d(i,n,function(t){return e[t]}.bind(null,n));return i},l.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(t,"a",t),t},l.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},l.p="",l(l.s=0)}([function(e,t){document.querySelector(".wrapper").classList.add("loaded");let l=document.querySelectorAll(".office-slider__current-slide"),i=document.querySelectorAll(".office-slider__total-slides"),n=document.querySelectorAll(".office-slider__slide"),s=document.querySelectorAll(".office-slider__first-slide");for(let e=0;e<i.length;e++)i[e].textContent=""+n.length/i.length,l[e].textContent="1";let o=document.querySelectorAll(".office-slider__arrow-left"),r=document.querySelectorAll(".office-slider__arrow-right");for(let e=0;e<r.length;e++)r[e].addEventListener("click",()=>{l[e].textContent===i[e].textContent?(s[e].style.marginLeft="0%",l[e].textContent="1"):(s[e].style.marginLeft=+s[e].style.marginLeft.slice(0,-1)-100+"%",l[e].textContent=""+(+l[e].textContent+1))});for(let e=0;e<o.length;e++)o[e].addEventListener("click",()=>{"1"===l[e].textContent?(s[e].style.marginLeft=-100*(n.length/i.length-1)+"%",l[e].textContent=i[e].textContent):(s[e].style.marginLeft=+s[e].style.marginLeft.slice(0,-1)+100+"%",l[e].textContent=""+(+l[e].textContent-1))});let c=document.querySelectorAll(".slider");for(let e=0;e<c.length;e++){let t=c[e].querySelectorAll(".slider__slide").length,l=c[e].querySelector(".slider__first-slide"),i=c[e].querySelector(".slider__current-slide"),n=c[e].querySelector(".slider__total-slides"),s=c[e].querySelector(".slider__arrow-left"),o=c[e].querySelector(".slider__arrow-right");c[e].style.maxWidth=c[e].scrollWidth/t+"px",i.textContent="1",n.textContent=""+t,1===t&&(s.classList.add("hidden"),o.classList.add("hidden")),s.addEventListener("click",()=>{"1"==i.textContent?(i.textContent=""+t,l.style.marginLeft=-100*(+i.textContent-1)+"%"):(i.textContent=""+(+i.textContent-1),l.style.marginLeft=-100*(+i.textContent-1)+"%")}),o.addEventListener("click",()=>{i.textContent==""+t?(i.textContent="1",l.style.marginLeft=-100*(+i.textContent-1)+"%"):(i.textContent=""+(+i.textContent+1),l.style.marginLeft=-100*(+i.textContent-1)+"%")})}let d=document.querySelectorAll(".map-slider");for(let e=0;e<d.length;e++){let t=d[e].querySelectorAll(".map-slider__slide").length,l=d[e].querySelector(".map-slider__first-slide"),i=d[e].querySelector(".map-slider__line"),n=d[e].querySelector(".map-slider__arrow-left"),s=d[e].querySelector(".map-slider__arrow-right"),o=1;d[e].style.maxWidth=d[e].scrollWidth/t+"px",i.style.width=100*(o-1)/(t-1)+"%",1===t&&(n.classList.add("hidden"),s.classList.add("hidden")),n.addEventListener("click",()=>{1===o?(o=t,l.style.marginLeft=-100*(o-1)+"%",i.style.width=100*(o-1)/(t-1)+"%"):(o-=1,l.style.marginLeft=-100*(o-1)+"%",i.style.width=100*(o-1)/(t-1)+"%")}),s.addEventListener("click",()=>{o===t?(o=1,l.style.marginLeft=-100*(o-1)+"%",i.style.width=100*(o-1)/(t-1)+"%"):(o+=1,l.style.marginLeft=-100*(o-1)+"%",i.style.width=100*(o-1)/(t-1)+"%")})}let a=document.querySelectorAll(".superoffers-slider");for(let e=0;e<a.length;e++){let t=a[e].querySelectorAll(".item"),l=t.length,i=(a[e].querySelector(".first-item"),a[e].querySelector(".superoffers-slider__current-slide")),n=a[e].querySelector(".superoffers-slider__total-slides"),s=a[e].querySelector(".superoffers-slider__arrow-left"),o=a[e].querySelector(".superoffers-slider__arrow-right"),r=a[e].querySelector(".superoffers-slider__right"),c=r.querySelector(".first-slider");i.textContent="5",c.style.marginLeft=-100*(+i.textContent-1)+"%",t[i.textContent-1].style.opacity="1",t[i.textContent-1].style.visibility="visible",t[i.textContent-1].style.zIndex="inherit",r.style.maxWidth=c.offsetWidth+"px",n.textContent=""+l,s.addEventListener("click",()=>{i.textContent==""+l&&(o.style.zIndex="inherit"),t[i.textContent-1].style.opacity="0",t[i.textContent-1].style.visibility="hidden",t[i.textContent-1].style.zIndex="-1",i.textContent=""+(+i.textContent-1),c.style.marginLeft=-100*(+i.textContent-1)+"%",t[i.textContent-1].style.opacity="1",t[i.textContent-1].style.visibility="visible",t[i.textContent-1].style.zIndex="inherit","1"==i.textContent&&(s.style.zIndex="-1")}),o.addEventListener("click",()=>{"1"==i.textContent&&(s.style.zIndex="inherit"),t[i.textContent-1].style.opacity="0",t[i.textContent-1].style.visibility="hidden",t[i.textContent-1].style.zIndex="-1",i.textContent=""+(+i.textContent+1),c.style.marginLeft=-100*(+i.textContent-1)+"%",t[i.textContent-1].style.opacity="1",t[i.textContent-1].style.visibility="visible",t[i.textContent-1].style.zIndex="inherit",i.textContent==""+l&&(o.style.zIndex="-1")})}let y=document.querySelectorAll(".search-open-btn"),u=document.querySelectorAll(".search-line");function m(){console.log(u[0].value)}function f(){u[0].style.width="280px",u[0].style.padding="11px 1px",y[0].removeEventListener("click",f),y[0].addEventListener("click",m)}y[0].addEventListener("click",f),document.addEventListener("click",e=>{let t=e.target;t===y[0]||t===u[0]||y[0].contains(t)||u[0].contains(t)||(u[0].style.width="0px",u[0].style.padding="11px 0px",y[0].addEventListener("click",f),y[0].removeEventListener("click",m))});let h=document.querySelector(".sticky-closing-by-search-line");function x(){console.log(u[1].value)}function p(){h.style.opacity="0",h.style.zIndex="-1",h.style.visibility="hidden",u[1].style.width="145px",u[1].style.padding="11px 1px",y[1].removeEventListener("click",p),y[1].addEventListener("click",x)}y[1].addEventListener("click",p),document.addEventListener("click",e=>{let t=e.target;t===y[1]||t===u[1]||y[1].contains(t)||u[1].contains(t)||(h.style.opacity="1",h.style.zIndex="inherit",h.style.visibility="visible",u[1].style.width="0px",u[1].style.padding="11px 0px",y[1].addEventListener("click",p),y[1].removeEventListener("click",x))});let _=document.querySelector(".closing-by-search-line");function v(){console.log(u[1].value)}function g(){_.style.opacity="0",_.style.zIndex="-1",_.style.visibility="visible",u[2].style.width="145px",u[2].style.padding="11px 1px",y[2].removeEventListener("click",g),y[2].addEventListener("click",v)}y[2].addEventListener("click",g),document.addEventListener("click",e=>{let t=e.target;t===y[2]||t===u[2]||y[2].contains(t)||u[2].contains(t)||(_.style.opacity="1",_.style.zIndex="inherit",_.style.visibility="visible",u[2].style.width="0px",u[2].style.padding="11px 0px",y[2].addEventListener("click",g),y[2].removeEventListener("click",v))});let L=document.querySelectorAll(".favorites-drop"),S=document.querySelectorAll(".favorites");for(let e=0;e<L.length;e++)L[e].addEventListener("click",()=>{"0"==S[e].style.opacity||""==S[e].style.opacity?(S[e].style.zIndex="100",S[e].style.opacity="1",S[e].style.visibility="visible"):(S[e].style.zIndex="-1",S[e].style.opacity="0",S[e].style.visibility="hidden")});document.addEventListener("click",e=>{let t=e.target;for(let e=0;e<L.length;e++)t===L[e]||t===S[e]||L[e].contains(t)||S[e].contains(t)||S[e].classList.contains("hidden")||(S[e].style.zIndex="-1",S[e].style.opacity="0",S[e].style.visibility="hidden")});let q=document.querySelectorAll(".menu-black__menu");for(let e=0;e<q.length;e++){let t=q[e].querySelectorAll(".menu-black__list"),l=q[e].querySelector(".menu-black__line"),i=q[e].querySelectorAll(".menu-black__drop-bg");for(let n=0;n<t.length;n++)t[n].addEventListener("mouseover",e=>{e.target!==l&&(l.style.left=t[n].offsetLeft-(document.querySelector(".wrapper").offsetWidth-document.querySelector(".container").offsetWidth)/2+"px",n===t.length-1?(l.style.width=t[n].querySelector("img").offsetWidth+"px",l.style.left=t[n].offsetLeft-(document.querySelector(".wrapper").offsetWidth-document.querySelector(".container").offsetWidth)/2+4+"px"):0===n?(l.style.width=t[n].offsetWidth-15+"px",l.style.left=t[n].offsetLeft-(document.querySelector(".wrapper").offsetWidth-document.querySelector(".container").offsetWidth)/2+"px"):(l.style.width=t[n].offsetWidth-30+"px",l.style.left=t[n].offsetLeft-(document.querySelector(".wrapper").offsetWidth-document.querySelector(".container").offsetWidth)/2+15+"px"))}),n!==t.length-1&&e!==q.length-1&&(t[n].querySelector(".menu-black__link").addEventListener("mouseover",e=>{if(e.target!==l){for(let e=0;e<t.length-2;e++)"100"===i[e].style.zIndex&&(i[e].style.zIndex="-1");n!==t.length-2&&(i[n].style.zIndex="100")}}),t[n].addEventListener("mouseout",e=>{let s=e.relatedTarget;s===t[n]||s===l||t[n].contains(s)||n===t.length-2||(i[n].style.zIndex="-1")}));if(e!==q.length-1)for(let e=0;e<i.length;e++)i[e].querySelector(".drop").addEventListener("mouseout",t=>{let l=t.relatedTarget;l===i[e].querySelector(".drop")||i[e].querySelector(".drop").contains(l)||(i[e].style.zIndex="-1")})}let b=document.querySelector(".menu-black-header"),k=document.querySelector(".menu-black-footer"),C=document.querySelector(".sticky-menu"),w=b.offsetTop,E=k.offsetParent.offsetTop;window.pageYOffset>=w+550&&window.pageYOffset<=E-550&&(C.style.top="0%"),window.addEventListener("scroll",()=>{window.pageYOffset>=w+550&&window.pageYOffset<=E-550?C.style.top="0%":C.style.top="-100%"}),document.querySelectorAll(".checkbox").forEach(e=>{e.addEventListener("click",()=>{let t=e.querySelector(".fa-check");"0"===t.style.opacity||""===t.style.opacity?(e.classList.add("checked"),t.style.opacity="1",t.style.visibility="visible"):(e.classList.remove("checked"),t.style.opacity="0",t.style.visibility="hidden")})}),document.querySelectorAll(".map-lists__infrastructure-checkbox").forEach(e=>{e.addEventListener("click",()=>{let t=e.querySelector(".fa-check");"0"===t.style.opacity||""===t.style.opacity?(e.classList.add("checked"),t.style.opacity="1",t.style.visibility="visible"):(e.classList.remove("checked"),t.style.opacity="0",t.style.visibility="hidden")})});let A=document.querySelector(".main-slider"),H=document.querySelector(".main-slider__switches"),W=document.querySelectorAll(".main-slider__switch"),I=0;H.style.left=document.querySelector(".container").offsetWidth+(document.querySelector("body").offsetWidth-document.querySelector(".container").offsetWidth)/2+"px",H.style.opacity="1";for(let e=0;e<W.length;e++)W[e].addEventListener("click",()=>{e!==I&&(W[I].classList.remove("main-slider__switch-active"),I=e,W[I].classList.add("main-slider__switch-active"),A.style.marginLeft=`-${100*I}%`)});let z=document.querySelectorAll(".find-price"),T=document.querySelectorAll(".price-options"),O=document.querySelectorAll(".find-price__hide");for(let e=0;e<z.length;e++){let t=z[e].querySelectorAll(".chosen-option-price"),l=z[e].querySelectorAll(".price-option");for(let e=0;e<t.length;e++)setInterval(()=>{l[e].value?t[e].textContent=l[e].value:t[e].textContent=e%2==0?"1.8":"4.5"},100);z[e].addEventListener("click",t=>{let l=t.target;"0px"!==T[e].style.maxHeight&&""!==T[e].style.maxHeight||l!==z[e]&&!z[e].contains(l)?l===T[e]||T[e].contains(l)||(T[e].style.maxHeight="0px",T[e].style.overflow="hidden"):(T[e].style.maxHeight="50px",T[e].style.overflow="auto",O[e].classList.add("hidden"))})}let j=document.querySelectorAll(".find-consist"),Y=document.querySelectorAll(".consist-options"),B=document.querySelectorAll(".find-consist__hide");for(let e=0;e<j.length;e++){let t=j[e].querySelectorAll(".chosen-option-consist"),l=j[e].querySelectorAll(".consist-option");for(let e=0;e<t.length;e++)setInterval(()=>{l[e].textContent?t[e].textContent=l[e].textContent:t[e].textContent=e%2==0?"2":"4"},100);j[e].addEventListener("click",t=>{let l=t.target;"0px"!==Y[e].style.maxHeight&&""!==Y[e].style.maxHeight||l!==j[e]&&!j[e].contains(l)?l===Y[e]||Y[e].contains(l)||(Y[e].style.maxHeight="0px",Y[e].style.overflow="hidden"):(Y[e].style.maxHeight="100px",Y[e].style.overflow="auto",B[e].classList.add("hidden"))})}document.addEventListener("click",e=>{let t=e.target;for(let e=0;e<j.length;e++)"0px"===Y[e].style.maxHeight||""===Y[e].style.maxHeight||t===j[e]||j[e].contains(t)||(Y[e].style.maxHeight="0px",Y[e].style.overflow="hidden")}),document.addEventListener("click",e=>{let t=e.target;for(let e=0;e<z.length;e++)"0px"===T[e].style.maxHeight||""===T[e].style.maxHeight||t===z[e]||z[e].contains(t)||(T[e].style.maxHeight="0px",T[e].style.overflow="hidden")});let P=document.querySelector(".find-date"),M=document.querySelector(".find-date__calendar");P.addEventListener("click",e=>{let t=e.target;"0"!==M.style.opacity&&""!==M.style.opacity||t!==P&&!P.contains(t)?t===M||M.contains(t)||(M.style.opacity="0",M.style.visibility="hidden"):(M.style.opacity="1",M.style.visibility="visible")}),document.addEventListener("click",e=>{let t=e.target;"0"===M.style.opacity||""===M.style.opacity||t===P||P.contains(t)||(M.style.opacity="0",M.style.visibility="hidden")});let N=P.querySelectorAll(".find-date__day"),R=0,$=0,D=0;for(let e=0;e<N.length;e++){if(N[e].classList.contains("find-date__day-today")){R=e;break}N[e].style.color="#e1dede",N[e].style.cursor="default"}for(let e=R;e<N.length;e++)if(N[e].classList.contains("find-date__day-chosen-begin"))$=e;else if(N[e].classList.contains("find-date__day-chosen-end")){D=e;break}for(let e=$+1;e<D;e++)N[e].style.backgroundColor="#f7fbfe";let F=document.querySelectorAll(".find-consist__less"),G=document.querySelectorAll(".find-consist__result"),J=document.querySelectorAll(".find-consist__more");for(let e=0;e<G.length;e++)F[e].addEventListener("click",()=>{"0"!==G[e].textContent&&(G[e].textContent=""+(+G[e].textContent-1))}),J[e].addEventListener("click",()=>{G[e].textContent=""+(+G[e].textContent+1)});let K=document.querySelectorAll(".find__form"),Q=K[0].querySelector(".find-area-hide"),U=K[1].querySelector(".find-room-hide"),V=K[0].querySelector(".find-area-show");setInterval(()=>{"участок"===K[0].querySelector(".type-chosen").textContent?(Q.classList.add("hidden"),V.classList.remove("hidden")):"комната"===K[0].querySelector(".type-chosen").textContent?(Q.classList.add("hidden"),V.classList.add("hidden")):(Q.classList.remove("hidden"),V.classList.add("hidden"))},100);for(let e=0;e<K.length-1;e++){let t=K[e].querySelector(".type-chosen"),l=K[e].querySelectorAll(".find-commerce"),i=K[e].querySelector(".find-commerce-hide");setInterval(()=>{for(let n=0;n<l.length;n++)t.textContent===l[n].textContent||"участок"===t.textContent||"комната"===t.textContent?("комната"===t.textContent&&1===e?U.classList.add("hidden"):U.classList.remove("hidden"),i.classList.add("hidden"),n=l.length):i.classList.remove("hidden")},100)}for(let e=0;e<K.length;e++){let t=K[e].querySelector(".find__submit"),l=t.querySelectorAll(".find__submit-part"),i=K[e].querySelector(".type-chosen"),n=K[e].querySelector(".find__city");setInterval(()=>{"Купить студию"!==i.textContent&&"Тип объекта"!==i.textContent&&n.value?(l[0].textContent="Показать ",l[0].style.marginRight="3px",l[1].textContent="123456",l[2].textContent=" объектов",t.style.maxWidth="270px",t.style.minWidth="270px"):(t.style.maxWidth="120px",t.style.minWidth="120px",l[0].textContent="Найти",l[0].style.marginRight="0",l[1].textContent="",l[2].textContent="")},100)}let X=document.querySelectorAll(".find__button"),Z=0;for(let e=0;e<X.length;e++)X[e].addEventListener("click",()=>{Z!==e&&(K[e].classList.remove("hidden"),X[e].classList.add("find__button-active"),K[Z].classList.add("hidden"),X[Z].classList.remove("find__button-active"),Z=e)});let ee=document.querySelector(".main-slide-1-slider"),te=ee.querySelectorAll(".main-slide-1-slider__name"),le=ee.querySelector(".main-slide-1-slider__first-slide"),ie=ee.querySelector(".main-slide-1-slider__line"),ne=ee.querySelector(".main-slide-1-slider__arrow-left"),se=ee.querySelector(".main-slide-1-slider__arrow-right"),oe=1,re=te.length-1;le.style.marginLeft=-100*oe+"%",ie.style.width=100*oe/(te.length-1)+"%",ne.addEventListener("click",()=>{oe===re&&(se.style.visibility="visible"),te[oe-1].classList.add("main-slide-1-slider__name-active"),te[oe].classList.remove("main-slide-1-slider__name-active"),oe--,le.style.marginLeft=-100*oe+"%",ie.style.width=100*oe/(te.length-1)+"%",0===oe&&(ne.style.visibility="hidden")}),se.addEventListener("click",()=>{0===oe&&(ne.style.visibility="visible"),te[oe+1].classList.add("main-slide-1-slider__name-active"),te[oe].classList.remove("main-slide-1-slider__name-active"),oe++,le.style.marginLeft=-100*oe+"%",ie.style.width=100*oe/(te.length-1)+"%",oe===re&&(se.style.visibility="hidden")});let ce=document.querySelector(".open-map-btn"),de=document.querySelector(".map-block"),ae=document.querySelector(".changing-place-link"),ye=document.querySelector(".under-slider__map-bg"),ue=document.querySelector(".map-lists"),me=document.querySelector(".map-lists__close-btn");ce.addEventListener("click",()=>{ae.style.left="271px",ae.style.transform="translate(-271px, 227px)",ae.style.position="absolute",de.style.height="428px",de.style.maxWidth="1019px",ye.style.display="none",me.classList.remove("hidden"),setTimeout(()=>{ue.style.visibility="visible",ue.style.opacity="1"},200)}),me.addEventListener("click",()=>{me.classList.add("hidden"),ue.style.visibility="hidden",ue.style.opacity="0",ae.style.transform="translate(0, 0)",setTimeout(()=>{ae.style.left="",ae.style.position="relative"},200),de.style.height="201px",de.style.maxWidth="748px",ye.style.display="flex"});let fe=ue.querySelector(".map-lists__to-find-first"),he=ue.querySelector(".map-lists__to-find-second");fe.addEventListener("click",()=>{fe.classList.add("hidden"),he.classList.remove("hidden")}),he.addEventListener("click",()=>{he.classList.add("hidden"),fe.classList.remove("hidden")});let xe=ue.querySelector(".map-lists__infrastructure-btn"),pe=ue.querySelector(".map-lists__infrastructure-menu"),_e=xe.querySelector(".fa-chevron-up");xe.addEventListener("click",()=>{"0px"===pe.style.maxHeight||""===pe.style.maxHeight?(pe.style.maxHeight="175px",pe.style.paddingBottom="15px",_e.style.transform="rotate(-180deg)"):(pe.style.maxHeight="0px",pe.style.paddingBottom="0px",_e.style.transform="rotate(0deg)")});let ve=ue.querySelectorAll(".map-lists__different-buttons"),ge=-1;for(let e=0;e<ve.length;e++)ve[e].addEventListener("click",()=>{-1===ge?(ve[e].classList.add("map-lists__button-active"),ge=e):(ve[e].classList.add("map-lists__button-active"),ve[ge].classList.remove("map-lists__button-active"),ge=e)});let Le=ue.querySelector(".map-lists__list-btn"),Se=Le.querySelector(".fa-long-arrow-alt-down");Le.addEventListener("click",()=>{let e=ue.querySelector(".map-lists__list-active");"0px"===e.style.maxHeight||"0%"===e.style.maxHeight||""===e.style.maxHeight?(e.style.maxHeight="100%",Le.style.top="393px",Se.style.transform="rotate(180deg)"):(e.style.maxHeight="0%",Le.style.top="23px",Se.style.transform="rotate(0deg)")});let qe=0,be=ue.querySelectorAll(".map-lists-list-switch"),ke=ue.querySelectorAll(".map-lists__list");for(let e=0;e<be.length;e++)be[e].addEventListener("click",()=>{qe!==e&&(ke[e].classList.add("map-lists__list-active"),ke[qe].classList.remove("map-lists__list-active"),"100%"===ke[qe].style.maxHeight&&(ke[qe].style.maxHeight="0%",Le.style.top="23px",Se.style.transform="rotate(0deg)",ke[e].style.maxHeight="100%",Le.style.top="393px",Se.style.transform="rotate(180deg)"),qe=e)});let Ce=ue.querySelector(".map-lists__search-btn"),we=ue.querySelector(".map-lists__search");Ce.addEventListener("click",()=>{Ce.classList.add("hidden"),we.style.maxWidth="100%"});let Ee=document.querySelectorAll(".new-items__items"),Ae=document.querySelectorAll(".new-items__arrow-left"),He=document.querySelectorAll(".new-items__arrow-right");for(let e=0;e<Ee.length;e++){let t=Ee[e].querySelectorAll(".new-items__item"),l=0,i=0;He[e].addEventListener("click",()=>{l!==t.length-3&&(i=i-t[l].scrollWidth-28,Ee[e].style.marginLeft=i+"px",l++)}),Ae[e].addEventListener("click",()=>{0!==l&&(l--,i=i+t[l].scrollWidth+28,Ee[e].style.marginLeft=i+"px")})}let We=document.querySelectorAll(".new-items__buttons"),Ie=document.querySelectorAll(".new-items__menu");for(let e=0;e<We.length;e++){let t=We[e].querySelector(".new-items__button-active"),l=We[e].querySelectorAll(".new-items__button"),i=Ie[e].querySelector(".new-items__sell"),n=Ie[e].querySelector(".new-items__rent"),s=Ie[e].querySelectorAll(".new-items__filter");s.forEach(e=>{e.addEventListener("click",()=>{e.classList.contains("maincolor")?e.classList.remove("maincolor"):e.classList.add("maincolor")})}),l.forEach(l=>{l.addEventListener("click",()=>{l.classList.contains("new-items__button-active")||(s.forEach(e=>{e.classList.remove("maincolor")}),l.classList.add("new-items__button-active"),t.classList.remove("new-items__button-active"),t=We[e].querySelector(".new-items__button-active"),"Все"===l.textContent?(i.classList.remove("hidden"),n.classList.remove("hidden")):"Продать"===l.textContent?(i.classList.remove("hidden"),n.classList.add("hidden")):"Сдать"===l.textContent&&(i.classList.add("hidden"),n.classList.remove("hidden")))})})}let ze=document.querySelectorAll(".buyout-left__switch"),Te=document.querySelectorAll(".buyout-left__inner-block"),Oe=0;Te[Oe].style.maxHeight="800px";let je=document.querySelectorAll(".buyout-left__block-choice"),Ye=-1;for(let e=0;e<je.length;e++)je[e].addEventListener("click",()=>{-1!==Ye?(je[e].classList.add("buyout-left__block-choice-chosen"),je[Ye].classList.remove("buyout-left__block-choice-chosen"),Ye=e):(je[e].classList.add("buyout-left__block-choice-chosen"),Ye=e)});for(let e=0;e<ze.length;e++)ze[e].addEventListener("click",()=>{e!==Oe&&(ze[Oe].classList.remove("buyout-left__switch-active"),ze[e].classList.add("buyout-left__switch-active"),Te[Oe].style.maxHeight="0px",Oe=e,setTimeout(()=>{Te[Oe].style.maxHeight="800px",je[Ye].classList.remove("buyout-left__block-choice-chosen"),Ye=-1},500))});let Be=document.querySelectorAll(".select"),Pe=document.querySelectorAll(".chosen-option"),Me=document.querySelectorAll(".options");for(let e=0;e<Be.length;e++)Be[e].addEventListener("click",()=>{let t=Be[e].querySelector(".fa-chevron-down");"0px"===Me[e].style.maxHeight||""===Me[e].style.maxHeight?(Me[e].style.maxHeight="194px",Me[e].style.overflow="auto",t.style.color="#acadad",t.style.transform="translateY(-50%) rotate(180deg)",Be[e].classList.contains("find__select")&&Be[e].classList.add("find__select-active")):(Me[e].style.maxHeight="0px",Me[e].style.overflow="hidden",t.style.color="#4abef7",t.style.transform="translateY(-50%) rotate(0deg)",Be[e].classList.contains("find__select")&&Be[e].classList.remove("find__select-active")),Me[e].querySelectorAll(".option").forEach(t=>{t.addEventListener("click",()=>{Pe[e].textContent=t.textContent})})});document.addEventListener("click",e=>{let t=e.target;for(let e=0;e<Be.length;e++){let l=Be[e].querySelector(".fa-chevron-down");"0px"===Me[e].style.maxHeight||""===Me[e].style.maxHeight||t===Be[e]||Be[e].contains(t)||(Me[e].style.maxHeight="0px",Me[e].style.overflow="hidden",l.style.color="#4abef7",l.style.transform="translateY(-50%) rotate(0deg)",Be[e].classList.contains("find__select-active")&&Be[e].classList.remove("find__select-active"))}});let Ne=document.querySelectorAll(".open-request"),Re=document.querySelectorAll(".close-request"),$e=document.querySelectorAll(".buyout-request");for(let e=0;e<Ne.length;e++)Ne[e].addEventListener("click",()=>{$e[e].style.maxHeight="280px",$e[e].style.marginTop="34px",setTimeout(()=>{$e[e].style.overflow="visible"},400)});for(let e=0;e<Re.length;e++)Re[e].addEventListener("click",()=>{$e[e].style.maxHeight="0px",$e[e].style.marginTop="0px",$e[e].style.overflow="hidden"});let De=document.querySelectorAll(".footer__show-btn"),Fe=document.querySelectorAll(".footer__lists"),Ge=document.querySelectorAll(".footer__arrow-up"),Je=document.querySelectorAll(".footer__arrow-down");document.getElementsByClassName("footer__show-btn");for(let e=0;e<De.length;e++)De[e].addEventListener("click",()=>{Ge[e].classList.toggle("hidden"),Je[e].classList.toggle("hidden"),"Показать все"==De[e].getElementsByTagName("span")[0].textContent?(De[e].getElementsByTagName("span")[0].textContent="Скрыть",Fe[e].style.maxHeight="718px"):(De[e].getElementsByTagName("span")[0].textContent="Показать все",Fe[e].style.maxHeight="253px")})}]);
+
+document.querySelector('.wrapper').classList.add('loaded');
+
+
+//office-slider
+
+let officeSlideCurrent = document.querySelectorAll('.office-slider__current-slide');
+let officeSlidesTotal = document.querySelectorAll('.office-slider__total-slides');
+let officeSlides = document.querySelectorAll('.office-slider__slide');
+let officeSliderFirstSlide = document.querySelectorAll('.office-slider__first-slide');
+
+for (let i = 0; i < officeSlidesTotal.length; i++) {
+    officeSlidesTotal[i].textContent = `${officeSlides.length / officeSlidesTotal.length}`;
+    officeSlideCurrent[i].textContent = '1';
+}
+
+
+let officeSliderPrev = document.querySelectorAll('.office-slider__arrow-left');
+let officeSliderNext = document.querySelectorAll('.office-slider__arrow-right');
+
+for (let i = 0; i < officeSliderNext.length; i++) {
+    officeSliderNext[i].addEventListener('click', () => {
+        if (officeSlideCurrent[i].textContent === officeSlidesTotal[i].textContent) {
+            officeSliderFirstSlide[i].style.marginLeft = '0%';
+            officeSlideCurrent[i].textContent = '1';
+        } else {
+            officeSliderFirstSlide[i].style.marginLeft = `${+(officeSliderFirstSlide[i].style.marginLeft.slice(0, -1)) - 100}%`;
+            officeSlideCurrent[i].textContent = `${+officeSlideCurrent[i].textContent + 1}`;
+        }
+    })
+}
+for (let i = 0; i < officeSliderPrev.length; i++) {
+    officeSliderPrev[i].addEventListener('click', () => {
+        if (officeSlideCurrent[i].textContent === '1') {
+            officeSliderFirstSlide[i].style.marginLeft = `${(officeSlides.length / officeSlidesTotal.length - 1) * (-100)}%`;
+            officeSlideCurrent[i].textContent = officeSlidesTotal[i].textContent;
+        } else {
+            officeSliderFirstSlide[i].style.marginLeft = `${+(officeSliderFirstSlide[i].style.marginLeft.slice(0, -1)) + 100}%`;
+            officeSlideCurrent[i].textContent = `${+officeSlideCurrent[i].textContent - 1}`;
+        }
+    })
+}
+
+//slider
+
+let sliders = document.querySelectorAll('.slider');
+
+for (let i = 0; i < sliders.length; i++) {
+    let sliderLength = sliders[i].querySelectorAll('.slider__slide').length;
+    let firstSlide = sliders[i].querySelector('.slider__first-slide');
+    let currentSlide = sliders[i].querySelector('.slider__current-slide');
+    let totalSlides = sliders[i].querySelector('.slider__total-slides');
+    let arrowLeft = sliders[i].querySelector('.slider__arrow-left');
+    let arrowRight = sliders[i].querySelector('.slider__arrow-right');
+    currentSlide.textContent = '1';
+    totalSlides.textContent = `${sliderLength}`;
+    if (sliderLength === 1) {
+        arrowLeft.classList.add('hidden');
+        arrowRight.classList.add('hidden');
+    }
+    arrowLeft.addEventListener('click', () => {
+        if (currentSlide.textContent == '1') {
+            currentSlide.textContent = `${sliderLength}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        } else {
+            currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        }
+    });
+    arrowRight.addEventListener('click', () => {
+        if (currentSlide.textContent == `${sliderLength}`) {
+            currentSlide.textContent = '1';
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        } else {
+            currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
+            firstSlide.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        }
+    });
+}
+
+//map-slider
+
+let mapSliders = document.querySelectorAll('.map-slider');
+
+for (let i = 0; i < mapSliders.length; i++) {
+    let sliderLength = mapSliders[i].querySelectorAll('.map-slider__slide').length;
+    let firstSlide = mapSliders[i].querySelector('.map-slider__first-slide');
+    let line = mapSliders[i].querySelector('.map-slider__line');
+    let arrowLeft = mapSliders[i].querySelector('.map-slider__arrow-left');
+    let arrowRight = mapSliders[i].querySelector('.map-slider__arrow-right');
+    let currentSlide = 1;
+    line.style.width = `${((currentSlide - 1) * 100) / (sliderLength - 1)}%`;
+    if (sliderLength === 1) {
+        arrowLeft.classList.add('hidden');
+        arrowRight.classList.add('hidden');
+    }
+    arrowLeft.addEventListener('click', () => {
+        if (currentSlide === 1) {
+            currentSlide = sliderLength;
+            firstSlide.style.marginLeft = `${(currentSlide - 1) * (-100)}%`;
+            line.style.width = `${((currentSlide - 1) * 100) / (sliderLength - 1)}%`;
+        } else {
+            currentSlide = currentSlide - 1;
+            firstSlide.style.marginLeft = `${(currentSlide - 1) * (-100)}%`;
+            line.style.width = `${((currentSlide - 1) * 100) / (sliderLength - 1)}%`;
+        }
+    });
+    arrowRight.addEventListener('click', () => {
+        if (currentSlide === sliderLength) {
+            currentSlide = 1;
+            firstSlide.style.marginLeft = `${(currentSlide - 1) * (-100)}%`;
+            line.style.width = `${((currentSlide - 1) * 100) / (sliderLength - 1)}%`;
+        } else {
+            currentSlide = currentSlide + 1;
+            firstSlide.style.marginLeft = `${(currentSlide - 1) * (-100)}%`;
+            line.style.width = `${((currentSlide - 1) * 100) / (sliderLength - 1)}%`;
+        }
+    });
+}
+
+//superoffers-slider
+
+let superoffersSliders = document.querySelectorAll('.superoffers-slider');
+
+for (let i = 0; i < superoffersSliders.length; i++) {
+    let sliderItems = superoffersSliders[i].querySelectorAll('.item');
+    let sliderLength = sliderItems.length;
+    let firstSlide = superoffersSliders[i].querySelector('.first-item');
+    let currentSlide = superoffersSliders[i].querySelector('.superoffers-slider__current-slide');
+    let totalSlides = superoffersSliders[i].querySelector('.superoffers-slider__total-slides');
+    let arrowLeft = superoffersSliders[i].querySelector('.superoffers-slider__arrow-left');
+    let arrowRight = superoffersSliders[i].querySelector('.superoffers-slider__arrow-right');
+    let sliderImages = superoffersSliders[i].querySelector('.superoffers-slider__right');
+    let sliderImagesFirst = sliderImages.querySelector('.first-slider');
+    currentSlide.textContent = '5';
+    sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+    sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+    sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+    sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
+    totalSlides.textContent = `${sliderLength}`;
+    arrowLeft.addEventListener('click', () => {
+        if (currentSlide.textContent == `${sliderLength}`) {
+            arrowRight.style.zIndex = 'inherit';
+        }
+        sliderItems[currentSlide.textContent - 1].style.opacity = '0';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'hidden';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = '-1';
+        currentSlide.textContent = `${+(currentSlide.textContent) - 1}`;
+        sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
+        if (currentSlide.textContent == '1') {
+            arrowLeft.style.zIndex = '-1';
+        }
+    });
+    arrowRight.addEventListener('click', () => {
+        if (currentSlide.textContent == '1') {
+            arrowLeft.style.zIndex = 'inherit';
+        }
+        sliderItems[currentSlide.textContent - 1].style.opacity = '0';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'hidden';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = '-1';
+        currentSlide.textContent = `${+(currentSlide.textContent) + 1}`;
+        sliderImagesFirst.style.marginLeft = `${(+(currentSlide.textContent) - 1) * (-100)}%`;
+        sliderItems[currentSlide.textContent - 1].style.opacity = '1';
+        sliderItems[currentSlide.textContent - 1].style.visibility = 'visible';
+        sliderItems[currentSlide.textContent - 1].style.zIndex = 'inherit';
+        if (currentSlide.textContent == `${sliderLength}`) {
+            arrowRight.style.zIndex = '-1';
+        }
+    });
+}
+
+//search-line
+
+let searchBtns = document.querySelectorAll('.search-open-btn');
+let searchLines = document.querySelectorAll('.search-line');
+
+// search header
+
+function searchItems() {
+    console.log(searchLines[0].value);
+}
+
+function openSearchLine() {
+    searchLines[0].style.width = '280px';
+    searchLines[0].style.padding = '11px 1px';
+    searchBtns[0].removeEventListener('click', openSearchLine);
+    searchBtns[0].addEventListener('click', searchItems);
+}
+
+searchBtns[0].addEventListener('click', openSearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[0] && target !== searchLines[0] && !(searchBtns[0].contains(target)) && !(searchLines[0].contains(target))) {
+        searchLines[0].style.width = '0px';
+        searchLines[0].style.padding = '11px 0px';
+        searchBtns[0].addEventListener('click', openSearchLine);
+        searchBtns[0].removeEventListener('click', searchItems);
+    }
+})
+
+//search sticky
+
+let stickyBySearchLineClosed = document.querySelector('.sticky-closing-by-search-line')
+
+function searchStickyItems() {
+    console.log(searchLines[1].value);
+}
+
+function openStickySearchLine() {
+    stickyBySearchLineClosed.style.opacity = '0';
+    stickyBySearchLineClosed.style.zIndex = '-1';
+    stickyBySearchLineClosed.style.visibility = 'hidden';
+    searchLines[1].style.width = '145px';
+    searchLines[1].style.padding = '11px 1px';
+    searchBtns[1].removeEventListener('click', openStickySearchLine);
+    searchBtns[1].addEventListener('click', searchStickyItems)
+}
+
+searchBtns[1].addEventListener('click', openStickySearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[1] && target !== searchLines[1] && !(searchBtns[1].contains(target)) && !(searchLines[1].contains(target))) {
+        stickyBySearchLineClosed.style.opacity = '1';
+        stickyBySearchLineClosed.style.zIndex = 'inherit';
+        stickyBySearchLineClosed.style.visibility = 'visible';
+        searchLines[1].style.width = '0px';
+        searchLines[1].style.padding = '11px 0px';
+        searchBtns[1].addEventListener('click', openStickySearchLine);
+        searchBtns[1].removeEventListener('click', searchStickyItems);
+    }
+})
+
+//search footer
+
+let footerBySearchLineClosed = document.querySelector('.closing-by-search-line')
+
+function searchFooterItems() {
+    console.log(searchLines[1].value);
+}
+
+function openFooterSearchLine() {
+    footerBySearchLineClosed.style.opacity = '0';
+    footerBySearchLineClosed.style.zIndex = '-1';
+    footerBySearchLineClosed.style.visibility = 'visible';
+    searchLines[2].style.width = '145px';
+    searchLines[2].style.padding = '11px 1px';
+    searchBtns[2].removeEventListener('click', openFooterSearchLine);
+    searchBtns[2].addEventListener('click', searchFooterItems)
+}
+
+searchBtns[2].addEventListener('click', openFooterSearchLine)
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target !== searchBtns[2] && target !== searchLines[2] && !(searchBtns[2].contains(target)) && !(searchLines[2].contains(target))) {
+        footerBySearchLineClosed.style.opacity = '1';
+        footerBySearchLineClosed.style.zIndex = 'inherit';
+        footerBySearchLineClosed.style.visibility = 'visible';
+        searchLines[2].style.width = '0px';
+        searchLines[2].style.padding = '11px 0px';
+        searchBtns[2].addEventListener('click', openFooterSearchLine);
+        searchBtns[2].removeEventListener('click', searchFooterItems);
+    }
+})
+
+//favorites
+
+let favoritesOpenBtns = document.querySelectorAll('.favorites-drop');
+let favoritesBlock = document.querySelectorAll('.favorites');
+
+for (let i = 0; i < favoritesOpenBtns.length; i++) {
+    favoritesOpenBtns[i].addEventListener('click', () => {
+        if (favoritesBlock[i].style.opacity == '0' || favoritesBlock[i].style.opacity == '') {
+            favoritesBlock[i].style.zIndex = '100';
+            favoritesBlock[i].style.opacity = '1';
+            favoritesBlock[i].style.visibility = 'visible';
+        } else {
+            favoritesBlock[i].style.zIndex = '-1';
+            favoritesBlock[i].style.opacity = '0';
+            favoritesBlock[i].style.visibility = 'hidden';
+        }
+    })
+}
+
+document.addEventListener('click', event => {
+    let target = event.target;
+    for (let i = 0; i < favoritesOpenBtns.length; i++) {
+        if (!(target === favoritesOpenBtns[i] || target === favoritesBlock[i]) && !(favoritesOpenBtns[i].contains(target) || favoritesBlock[i].contains(target)) && !(favoritesBlock[i].classList.contains('hidden'))) {
+            favoritesBlock[i].style.zIndex = '-1';
+            favoritesBlock[i].style.opacity = '0';
+            favoritesBlock[i].style.visibility = 'hidden';
+        }
+    }
+})
+
+//нижняя полоса главного меню и фон выпадающих меню
+
+
+let blackMenus = document.querySelectorAll('.menu-black__menu');
+
+for (let i = 0; i < blackMenus.length; i++) {
+    let blackMenuLists = blackMenus[i].querySelectorAll('.menu-black__list');
+    let blackMenuLine = blackMenus[i].querySelector('.menu-black__line');
+    let blackMenuBackgrounds = blackMenus[i].querySelectorAll('.menu-black__drop-bg');
+    for (let j = 0; j < blackMenuLists.length; j++) {
+        blackMenuLists[j].addEventListener('mouseover', (event) => {
+            let target = event.target;
+            if (!(target === blackMenuLine)) {
+                blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
+                if (j === (blackMenuLists.length - 1)) {
+                    blackMenuLine.style.width = `${blackMenuLists[j].querySelector('img').offsetWidth}px`;
+                    blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 4}px`;
+                } else if (j === 0) {
+                    blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 15}px`;
+                    blackMenuLine.style.left = `${blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
+                } else {
+                    blackMenuLine.style.width = `${blackMenuLists[j].offsetWidth - 30}px`;
+                    blackMenuLine.style.left = `${(blackMenuLists[j].offsetLeft - (document.querySelector('.wrapper').offsetWidth - document.querySelector('.container').offsetWidth) / 2) + 15}px`;
+                }
+            }
+        })
+        if ((j !== blackMenuLists.length - 1) && (i !== blackMenus.length - 1)) {
+            blackMenuLists[j].querySelector('.menu-black__link').addEventListener('mouseover', (event) => {
+                let target = event.target;
+                if (!(target === blackMenuLine)) {
+                    for (let k = 0; k < blackMenuLists.length - 2; k++) {
+                        if (blackMenuBackgrounds[k].style.zIndex === '100') {
+                            blackMenuBackgrounds[k].style.zIndex = '-1';
+                        }
+                    }
+                    if (j !== blackMenuLists.length - 2) {
+                        blackMenuBackgrounds[j].style.zIndex = '100';
+                    }
+                }
+            })
+            blackMenuLists[j].addEventListener('mouseout', (event) => {
+                let target = event.relatedTarget;
+                if ((target !== blackMenuLists[j]) && (target !== blackMenuLine) && !(blackMenuLists[j].contains(target)) && (j !== blackMenuLists.length - 2)) {
+                    blackMenuBackgrounds[j].style.zIndex = '-1';
+                }
+            })
+        }
+    }
+    if (i !== blackMenus.length - 1) {
+        for (let j = 0; j < blackMenuBackgrounds.length; j++) {
+            blackMenuBackgrounds[j].querySelector('.drop').addEventListener('mouseout', (event) => {
+                let target = event.relatedTarget;
+                if ((!(target === blackMenuBackgrounds[j].querySelector('.drop')) && !(blackMenuBackgrounds[j].querySelector('.drop').contains(target)))) {
+                    blackMenuBackgrounds[j].style.zIndex = '-1';
+                }
+            })
+        }
+    }
+}
+
+
+//sticky menu
+
+let menuBlackHeader = document.querySelector(".menu-black-header");
+let menuBlackFooter = document.querySelector(".menu-black-footer");
+let stickyMenu = document.querySelector(".sticky-menu");
+
+let stickyTop = menuBlackHeader.offsetTop;
+let stickyBottom = menuBlackFooter.offsetParent.offsetTop;
+
+if ((window.pageYOffset >= (stickyTop + 550)) && (window.pageYOffset <= (stickyBottom - 550))) {
+    stickyMenu.style.top = '0%';
+}
+
+window.addEventListener('scroll', () => {
+    if ((window.pageYOffset >= (stickyTop + 550)) && (window.pageYOffset <= (stickyBottom - 550))) {
+        stickyMenu.style.top = '0%';
+    } else {
+        stickyMenu.style.top = '-100%';
+    }
+});
+let checkboxBtns = document.querySelectorAll('.checkbox');
+
+checkboxBtns.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+        let check = checkbox.querySelector('.fa-check');
+        if (check.style.opacity === '0' || check.style.opacity === '') {
+            checkbox.classList.add('checked');
+            check.style.opacity = '1';
+            check.style.visibility = 'visible';
+        } else {
+            checkbox.classList.remove('checked');
+            check.style.opacity = '0';
+            check.style.visibility = 'hidden';
+        }
+    })
+});
+
+let mapCheckboxBtns = document.querySelectorAll('.map-lists__infrastructure-checkbox');
+
+mapCheckboxBtns.forEach(checkbox => {
+    checkbox.addEventListener('click', () => {
+        let check = checkbox.querySelector('.fa-check');
+        if (check.style.opacity === '0' || check.style.opacity === '') {
+            checkbox.classList.add('checked');
+            check.style.opacity = '1';
+            check.style.visibility = 'visible';
+        } else {
+            checkbox.classList.remove('checked');
+            check.style.opacity = '0';
+            check.style.visibility = 'hidden';
+        }
+    })
+})
+// main-slider switches
+
+let mainSlider = document.querySelector('.main-slider');
+let mainSliderSwitchesBlock = document.querySelector('.main-slider__switches');
+let mainSliderSwitches = document.querySelectorAll('.main-slider__switch');
+let activeSlideNumber = 0;
+
+mainSliderSwitchesBlock.style.left = `${document.querySelector('.container').offsetWidth + (document.querySelector('body').offsetWidth - document.querySelector('.container').offsetWidth) / 2}px`;
+mainSliderSwitchesBlock.style.opacity = '1';
+
+for (let i = 0; i < mainSliderSwitches.length; i++) {
+    mainSliderSwitches[i].addEventListener('click', () => {
+        if (i !== activeSlideNumber) {
+            mainSliderSwitches[activeSlideNumber].classList.remove('main-slider__switch-active');
+            activeSlideNumber = i;
+            mainSliderSwitches[activeSlideNumber].classList.add('main-slider__switch-active');
+            mainSlider.style.marginLeft = `-${activeSlideNumber * 100}%`;
+        }
+    })
+}
+
+let findPrices = document.querySelectorAll('.find-price');
+let findPricesOptions = document.querySelectorAll('.price-options');
+let findPricesHideBlocks = document.querySelectorAll('.find-price__hide');
+
+for (let i = 0; i < findPrices.length; i++) {
+    let chosenPrices = findPrices[i].querySelectorAll('.chosen-option-price');
+    let optionsPrices = findPrices[i].querySelectorAll('.price-option');
+    for (let j = 0; j < chosenPrices.length; j++) {
+        setInterval(() => {
+            if (optionsPrices[j].value) {
+                chosenPrices[j].textContent = optionsPrices[j].value;
+            } else if (j % 2 === 0) {
+                chosenPrices[j].textContent = '1.8';
+            } else {
+                chosenPrices[j].textContent = '4.5';
+            }
+        }, 100)
+    }
+    findPrices[i].addEventListener('click', (event) => {
+        let target = event.target;
+        if ((findPricesOptions[i].style.maxHeight === '0px' || findPricesOptions[i].style.maxHeight === '') && ((target === findPrices[i]) || (findPrices[i].contains(target)))) {
+            findPricesOptions[i].style.maxHeight = '50px';
+            findPricesOptions[i].style.overflow = 'auto';
+            findPricesHideBlocks[i].classList.add('hidden');
+        } else if ((target !== findPricesOptions[i]) && !(findPricesOptions[i].contains(target))) {
+            findPricesOptions[i].style.maxHeight = '0px';
+            findPricesOptions[i].style.overflow = 'hidden';
+        } else {
+        }
+    })
+}
+
+let findConsists = document.querySelectorAll('.find-consist');
+let findConsistsOptions = document.querySelectorAll('.consist-options');
+let findConsistsHideBlocks = document.querySelectorAll('.find-consist__hide');
+
+for (let i = 0; i < findConsists.length; i++) {
+    let chosenConsists = findConsists[i].querySelectorAll('.chosen-option-consist');
+    let optionsConsists = findConsists[i].querySelectorAll('.consist-option');
+    for (let j = 0; j < chosenConsists.length; j++) {
+        setInterval(() => {
+            if (optionsConsists[j].textContent) {
+                chosenConsists[j].textContent = optionsConsists[j].textContent;
+            } else if (j % 2 === 0) {
+                chosenConsists[j].textContent = '2';
+            } else {
+                chosenConsists[j].textContent = '4';
+            }
+        }, 100)
+    }
+    findConsists[i].addEventListener('click', (event) => {
+        let target = event.target;
+        if ((findConsistsOptions[i].style.maxHeight === '0px' || findConsistsOptions[i].style.maxHeight === '') && ((target === findConsists[i]) || (findConsists[i].contains(target)))) {
+            findConsistsOptions[i].style.maxHeight = '100px';
+            findConsistsOptions[i].style.overflow = 'auto';
+            findConsistsHideBlocks[i].classList.add('hidden');
+        } else if ((target !== findConsistsOptions[i]) && !(findConsistsOptions[i].contains(target))) {
+            findConsistsOptions[i].style.maxHeight = '0px';
+            findConsistsOptions[i].style.overflow = 'hidden';
+        } else {
+        }
+    })
+}
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    for (let i = 0; i < findConsists.length; i++) {
+        if ((!(findConsistsOptions[i].style.maxHeight === '0px' || findConsistsOptions[i].style.maxHeight === '')) && (target !== findConsists[i]) && (!(findConsists[i].contains(target)))) {
+            findConsistsOptions[i].style.maxHeight = '0px';
+            findConsistsOptions[i].style.overflow = 'hidden';
+        }
+    }
+})
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    for (let i = 0; i < findPrices.length; i++) {
+        if ((!(findPricesOptions[i].style.maxHeight === '0px' || findPricesOptions[i].style.maxHeight === '')) && (target !== findPrices[i]) && (!(findPrices[i].contains(target)))) {
+            findPricesOptions[i].style.maxHeight = '0px';
+            findPricesOptions[i].style.overflow = 'hidden';
+        }
+    }
+})
+
+let findDate = document.querySelector('.find-date');
+let findDateCalendar = document.querySelector('.find-date__calendar');
+
+findDate.addEventListener('click', (event) => {
+    let target = event.target;
+    if ((findDateCalendar.style.opacity === '0' || findDateCalendar.style.opacity === '') && ((target === findDate) || (findDate.contains(target)))) {
+        findDateCalendar.style.opacity = '1';
+        findDateCalendar.style.visibility = 'visible';
+    } else if ((target !== findDateCalendar) && !(findDateCalendar.contains(target))) {
+        findDateCalendar.style.opacity = '0';
+        findDateCalendar.style.visibility = 'hidden';
+    } else {
+    }
+})
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    if ((!(findDateCalendar.style.opacity === '0' || findDateCalendar.style.opacity === '')) && (target !== findDate) && (!(findDate.contains(target)))) {
+        findDateCalendar.style.opacity = '0';
+        findDateCalendar.style.visibility = 'hidden';
+    }
+})
+
+let findDateDays = findDate.querySelectorAll('.find-date__day');
+let indexOfToday = 0;
+let indexOfChosenBegin = 0;
+let indexOfChosenEnd = 0;
+
+for (let i = 0; i < findDateDays.length; i++) {
+    if (!(findDateDays[i].classList.contains('find-date__day-today'))) {
+        findDateDays[i].style.color = '#e1dede';
+        findDateDays[i].style.cursor = 'default';
+    } else {
+        indexOfToday = i;
+        break;
+    }
+}
+
+for (let i = indexOfToday; i < findDateDays.length; i++) {
+    if (findDateDays[i].classList.contains('find-date__day-chosen-begin')) {
+        indexOfChosenBegin = i;
+    } else if (findDateDays[i].classList.contains('find-date__day-chosen-end')) {
+        indexOfChosenEnd = i;
+        break;
+    }
+}
+
+for (let i = indexOfChosenBegin + 1; i < indexOfChosenEnd; i++) {
+    findDateDays[i].style.backgroundColor = '#f7fbfe';
+}
+
+let findConsistsOptionsLessBtns = document.querySelectorAll('.find-consist__less');
+let findConsistsOptionsResults = document.querySelectorAll('.find-consist__result');
+let findConsistsOptionsMoreBtns = document.querySelectorAll('.find-consist__more');
+
+for (let i = 0; i < findConsistsOptionsResults.length; i++) {
+    findConsistsOptionsLessBtns[i].addEventListener('click', () => {
+        if (findConsistsOptionsResults[i].textContent !== '0') {
+            findConsistsOptionsResults[i].textContent = `${+(findConsistsOptionsResults[i].textContent) - 1}`;
+        }
+    })
+    findConsistsOptionsMoreBtns[i].addEventListener('click', () => {
+        findConsistsOptionsResults[i].textContent = `${+(findConsistsOptionsResults[i].textContent) + 1}`;
+    })
+}
+
+
+
+let mainSliderForms = document.querySelectorAll('.find__form');
+let findAreaToHide = mainSliderForms[0].querySelector('.find-area-hide');
+let findRoomToHide = mainSliderForms[1].querySelector('.find-room-hide');
+let findAreaToShow = mainSliderForms[0].querySelector('.find-area-show');
+
+
+setInterval(() => {
+    if (mainSliderForms[0].querySelector('.type-chosen').textContent === 'участок') {
+        findAreaToHide.classList.add('hidden');
+        findAreaToShow.classList.remove('hidden');
+    } else if (mainSliderForms[0].querySelector('.type-chosen').textContent === 'комната') {
+        findAreaToHide.classList.add('hidden');
+        findAreaToShow.classList.add('hidden');
+    } else {
+        findAreaToHide.classList.remove('hidden');
+        findAreaToShow.classList.add('hidden');
+    }
+}, 100)
+
+
+for (let i = 0; i < mainSliderForms.length - 1; i++) {
+    let selectedType = mainSliderForms[i].querySelector('.type-chosen');
+    let findCommerces = mainSliderForms[i].querySelectorAll('.find-commerce');
+    let findCommerceToHide = mainSliderForms[i].querySelector('.find-commerce-hide');
+    setInterval(() => {
+        for (let j = 0; j < findCommerces.length; j++) {
+            if (selectedType.textContent === findCommerces[j].textContent || selectedType.textContent === 'участок' || selectedType.textContent === 'комната') {
+                if (selectedType.textContent === 'комната' && i === 1) {
+                    findRoomToHide.classList.add('hidden');
+                } else {
+                    findRoomToHide.classList.remove('hidden');
+                }
+                findCommerceToHide.classList.add('hidden');
+                j = findCommerces.length;
+            } else {
+                findCommerceToHide.classList.remove('hidden');
+            }
+        }
+    }, 100)
+}
+
+for (let i = 0; i < mainSliderForms.length; i++) {
+    let formSubmit = mainSliderForms[i].querySelector('.find__submit');
+    let formSubmitParts = formSubmit.querySelectorAll('.find__submit-part');
+    let selectedType = mainSliderForms[i].querySelector('.type-chosen');
+    let selectedCity = mainSliderForms[i].querySelector('.find__city');
+    setInterval(() => {
+        if ((selectedType.textContent !== 'Купить студию' && selectedType.textContent !== 'Тип объекта') && selectedCity.value) {
+            formSubmitParts[0].textContent = 'Показать ';
+            formSubmitParts[0].style.marginRight = '3px';
+            formSubmitParts[1].textContent = '123456';
+            formSubmitParts[2].textContent = ' объектов';
+            formSubmit.style.maxWidth = '270px';
+            formSubmit.style.minWidth = '270px';
+        } else {
+            formSubmit.style.maxWidth = '120px';
+            formSubmit.style.minWidth = '120px';
+            formSubmitParts[0].textContent = 'Найти';
+            formSubmitParts[0].style.marginRight = '0';
+            formSubmitParts[1].textContent = '';
+            formSubmitParts[2].textContent = '';
+        }
+    }, 100)
+}
+
+let openFormBtns = document.querySelectorAll('.find__button');
+let indexOfActiveForm = 0;
+
+for (let i = 0; i < openFormBtns.length; i++) {
+    openFormBtns[i].addEventListener('click', () => {
+        if (indexOfActiveForm !== i) {
+            mainSliderForms[i].classList.remove('hidden');
+            openFormBtns[i].classList.add('find__button-active');
+            mainSliderForms[indexOfActiveForm].classList.add('hidden');
+            openFormBtns[indexOfActiveForm].classList.remove('find__button-active');
+            indexOfActiveForm = i;
+        }
+    })
+}
+
+let mainSliderSubSlider = document.querySelector('.main-slide-1-slider');
+let mainSliderSubSliderNames = mainSliderSubSlider.querySelectorAll('.main-slide-1-slider__name');
+let mainSliderSubSliderFirstSlide = mainSliderSubSlider.querySelector('.main-slide-1-slider__first-slide');
+let mainSliderSubSliderLine = mainSliderSubSlider.querySelector('.main-slide-1-slider__line');
+let mainSliderSubSliderArrowLeft = mainSliderSubSlider.querySelector('.main-slide-1-slider__arrow-left');
+let mainSliderSubSliderArrowRight = mainSliderSubSlider.querySelector('.main-slide-1-slider__arrow-right');
+
+let indexOfActiveSlideSubSlider = 1;
+let maxIndexOfActiveSlideSubSlider = mainSliderSubSliderNames.length - 1;
+
+mainSliderSubSliderFirstSlide.style.marginLeft = `${indexOfActiveSlideSubSlider * (-100)}%`;
+mainSliderSubSliderLine.style.width = `${indexOfActiveSlideSubSlider*100/(mainSliderSubSliderNames.length - 1)}%`;
+
+mainSliderSubSliderArrowLeft.addEventListener('click', () => {
+    if (indexOfActiveSlideSubSlider === maxIndexOfActiveSlideSubSlider) {
+        mainSliderSubSliderArrowRight.style.visibility = 'visible';
+    }
+    mainSliderSubSliderNames[indexOfActiveSlideSubSlider - 1].classList.add('main-slide-1-slider__name-active');
+    mainSliderSubSliderNames[indexOfActiveSlideSubSlider].classList.remove('main-slide-1-slider__name-active');
+    indexOfActiveSlideSubSlider--;
+    mainSliderSubSliderFirstSlide.style.marginLeft = `${indexOfActiveSlideSubSlider * (-100)}%`;
+    mainSliderSubSliderLine.style.width = `${indexOfActiveSlideSubSlider*100/(mainSliderSubSliderNames.length - 1)}%`;
+    if (indexOfActiveSlideSubSlider === 0) {
+        mainSliderSubSliderArrowLeft.style.visibility = 'hidden';
+    }
+})
+
+mainSliderSubSliderArrowRight.addEventListener('click', () => {
+    if (indexOfActiveSlideSubSlider === 0) {
+        mainSliderSubSliderArrowLeft.style.visibility = 'visible';
+    }
+    mainSliderSubSliderNames[indexOfActiveSlideSubSlider + 1].classList.add('main-slide-1-slider__name-active');
+    mainSliderSubSliderNames[indexOfActiveSlideSubSlider].classList.remove('main-slide-1-slider__name-active');
+    indexOfActiveSlideSubSlider++;
+    mainSliderSubSliderFirstSlide.style.marginLeft = `${indexOfActiveSlideSubSlider * (-100)}%`;
+    mainSliderSubSliderLine.style.width = `${indexOfActiveSlideSubSlider*100/(mainSliderSubSliderNames.length - 1)}%`;
+    if (indexOfActiveSlideSubSlider === maxIndexOfActiveSlideSubSlider) {
+        mainSliderSubSliderArrowRight.style.visibility = 'hidden';
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let openMapButton = document.querySelector('.open-map-btn');
+let mapBlock = document.querySelector('.map-block');
+let changingPlaceLink = document.querySelector('.changing-place-link');
+let mapBackground = document.querySelector('.under-slider__map-bg');
+let mapLists = document.querySelector('.map-lists');
+let closeMapBtn = document.querySelector('.map-lists__close-btn');
+
+openMapButton.addEventListener('click', () => {
+    changingPlaceLink.style.left = '271px';
+    changingPlaceLink.style.transform = 'translate(-271px, 227px)';
+    changingPlaceLink.style.position = 'absolute';
+    mapBlock.style.height = '428px';
+    mapBlock.style.maxWidth = '1019px';
+    mapBackground.style.display = 'none';
+    closeMapBtn.classList.remove('hidden');
+    setTimeout(() => {
+        mapLists.style.visibility = 'visible';
+        mapLists.style.opacity = '1';
+    }, 200)
+});
+
+closeMapBtn.addEventListener('click', () => {
+    closeMapBtn.classList.add('hidden');
+    mapLists.style.visibility = 'hidden';
+    mapLists.style.opacity = '0';
+    changingPlaceLink.style.transform = 'translate(0, 0)';
+    setTimeout(() => {
+        changingPlaceLink.style.left = '';
+        changingPlaceLink.style.position = 'relative';
+    }, 200)
+    mapBlock.style.height = '201px';
+    mapBlock.style.maxWidth = '748px';
+    mapBackground.style.display = 'flex';
+});
+
+let mapBottomBtnFirst = mapLists.querySelector('.map-lists__to-find-first');
+let mapBottomBtnSecond = mapLists.querySelector('.map-lists__to-find-second');
+
+mapBottomBtnFirst.addEventListener('click', () => {
+    mapBottomBtnFirst.classList.add('hidden');
+    mapBottomBtnSecond.classList.remove('hidden');
+})
+
+mapBottomBtnSecond.addEventListener('click', () => {
+    mapBottomBtnSecond.classList.add('hidden');
+    mapBottomBtnFirst.classList.remove('hidden');
+})
+
+let mapInfrastructureBtn = mapLists.querySelector('.map-lists__infrastructure-btn');
+let mapInfrastructure = mapLists.querySelector('.map-lists__infrastructure-menu');
+let mapInfrastructureBtnArrow = mapInfrastructureBtn.querySelector('.fa-chevron-up');
+
+mapInfrastructureBtn.addEventListener('click', () => {
+    if (mapInfrastructure.style.maxHeight === '0px' || mapInfrastructure.style.maxHeight === '') {
+        mapInfrastructure.style.maxHeight = '175px';
+        mapInfrastructure.style.paddingBottom = '15px';
+        mapInfrastructureBtnArrow.style.transform = 'rotate(-180deg)';
+    } else {
+        mapInfrastructure.style.maxHeight = '0px';
+        mapInfrastructure.style.paddingBottom = '0px';
+        mapInfrastructureBtnArrow.style.transform = 'rotate(0deg)';
+    }
+})
+
+let mapDifferentBtns = mapLists.querySelectorAll('.map-lists__different-buttons');
+let mapCurrentDifferentButton = -1;
+
+for (let i = 0; i < mapDifferentBtns.length; i++) {
+    mapDifferentBtns[i].addEventListener('click', () => {
+        if (mapCurrentDifferentButton === -1) {
+            mapDifferentBtns[i].classList.add('map-lists__button-active');
+            mapCurrentDifferentButton = i;
+        } else {
+            mapDifferentBtns[i].classList.add('map-lists__button-active');
+            mapDifferentBtns[mapCurrentDifferentButton].classList.remove('map-lists__button-active');
+            mapCurrentDifferentButton = i;
+        }
+    })
+}
+
+let mapListOpenBtn = mapLists.querySelector('.map-lists__list-btn');
+let mapListOpenBtnArrow = mapListOpenBtn.querySelector('.fa-long-arrow-alt-down');
+
+mapListOpenBtn.addEventListener('click', () => {
+    let mapActiveList = mapLists.querySelector('.map-lists__list-active');
+    if (mapActiveList.style.maxHeight === '0px' || mapActiveList.style.maxHeight === '0%' || mapActiveList.style.maxHeight === '') {
+        mapActiveList.style.maxHeight = '100%';
+        mapListOpenBtn.style.top = '393px';
+        mapListOpenBtnArrow.style.transform = 'rotate(180deg)';
+    } else {
+        mapActiveList.style.maxHeight = '0%';
+        mapListOpenBtn.style.top = '23px';
+        mapListOpenBtnArrow.style.transform = 'rotate(0deg)';
+    }
+})
+
+let indexOfActiveMapList = 0;
+let mapListSwitches = mapLists.querySelectorAll('.map-lists-list-switch');
+let mapListsLists = mapLists.querySelectorAll('.map-lists__list');
+
+for (let i = 0; i < mapListSwitches.length; i++) {
+    mapListSwitches[i].addEventListener('click', () => {
+        if (indexOfActiveMapList !== i) {
+            mapListsLists[i].classList.add('map-lists__list-active');
+            mapListsLists[indexOfActiveMapList].classList.remove('map-lists__list-active');
+            if (mapListsLists[indexOfActiveMapList].style.maxHeight ===  '100%') {
+                mapListsLists[indexOfActiveMapList].style.maxHeight = '0%';
+                mapListOpenBtn.style.top = '23px';
+                mapListOpenBtnArrow.style.transform = 'rotate(0deg)';
+                mapListsLists[i].style.maxHeight = '100%';
+                mapListOpenBtn.style.top = '393px';
+                mapListOpenBtnArrow.style.transform = 'rotate(180deg)';
+            }
+            indexOfActiveMapList = i;
+        }
+    })
+}
+
+let mapOpenSearchBtn = mapLists.querySelector('.map-lists__search-btn');
+let mapSearch = mapLists.querySelector('.map-lists__search');
+
+mapOpenSearchBtn.addEventListener('click', () => {
+    mapOpenSearchBtn.classList.add('hidden');
+    mapSearch.style.maxWidth = '100%';
+})
+
+
+// new-items-slider
+
+let newItemsBlocks = document.querySelectorAll('.new-items__items');
+let newItemsArrowLeft = document.querySelectorAll('.new-items__arrow-left');
+let newItemsArrowRight = document.querySelectorAll('.new-items__arrow-right');
+
+
+for(let i = 0; i < newItemsBlocks.length; i++) {
+    let newItems = newItemsBlocks[i].querySelectorAll('.new-items__item');
+    let firstItemIndex = 0;
+    let marginLeft = 0;
+    newItemsArrowRight[i].addEventListener('click', () => {
+        if (firstItemIndex !== (newItems.length - 3)) {
+            marginLeft = marginLeft - newItems[firstItemIndex].scrollWidth - 28;
+            newItemsBlocks[i].style.marginLeft = `${marginLeft}px`;
+            firstItemIndex++;
+        }
+    });
+    newItemsArrowLeft[i].addEventListener('click', () => {
+        if (firstItemIndex !== (0)) {
+            firstItemIndex--;
+            marginLeft = marginLeft + newItems[firstItemIndex].scrollWidth + 28;
+            newItemsBlocks[i].style.marginLeft = `${marginLeft}px`;
+        }
+    })
+}
+
+// new-items-filter
+
+let newItemsButtonBlocks = document.querySelectorAll('.new-items__buttons');
+let newItemsMenus = document.querySelectorAll('.new-items__menu');
+
+for (let i = 0; i < newItemsButtonBlocks.length; i++) {
+    let newItemsActiveButton = newItemsButtonBlocks[i].querySelector('.new-items__button-active');
+    let newItemsButtons = newItemsButtonBlocks[i].querySelectorAll('.new-items__button');
+    let newItemsToSell = newItemsMenus[i].querySelector('.new-items__sell');
+    let newItemsToRent = newItemsMenus[i].querySelector('.new-items__rent');
+    let newItemsFilters = newItemsMenus[i].querySelectorAll('.new-items__filter');
+    newItemsFilters.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.classList.contains('maincolor')) {
+                button.classList.remove('maincolor');
+            } else {
+                button.classList.add('maincolor');
+            }
+        })
+    });
+    newItemsButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (!(button.classList.contains('new-items__button-active'))) {
+                newItemsFilters.forEach(button => {
+                    button.classList.remove('maincolor');
+                });
+                button.classList.add('new-items__button-active');
+                newItemsActiveButton.classList.remove('new-items__button-active');
+                newItemsActiveButton = newItemsButtonBlocks[i].querySelector('.new-items__button-active');
+                if (button.textContent === 'Все') {
+                    newItemsToSell.classList.remove('hidden');
+                    newItemsToRent.classList.remove('hidden');
+                } else if (button.textContent === 'Продать') {
+                    newItemsToSell.classList.remove('hidden');
+                    newItemsToRent.classList.add('hidden');
+                } else if (button.textContent === 'Сдать') {
+                    newItemsToSell.classList.add('hidden');
+                    newItemsToRent.classList.remove('hidden');
+                }
+            }
+        })
+    })
+}
+
+
+
+
+
+//buyout switches
+
+let buyoutSwitches = document.querySelectorAll('.buyout-left__switch');
+let buyoutInnerBlocks = document.querySelectorAll('.buyout-left__inner-block');
+
+let buyoutSwitchChosen = 0;
+buyoutInnerBlocks[buyoutSwitchChosen].style.maxHeight = '800px';
+
+let buyoutButtonsToWork = document.querySelectorAll('.buyout-left__block-choice');
+let indexOfChosenButton = -1;
+
+for (let i = 0; i < buyoutButtonsToWork.length; i++) {
+    buyoutButtonsToWork[i].addEventListener('click', () => {
+        if (!(indexOfChosenButton === -1)) {
+            buyoutButtonsToWork[i].classList.add('buyout-left__block-choice-chosen');
+            buyoutButtonsToWork[indexOfChosenButton].classList.remove('buyout-left__block-choice-chosen');
+            indexOfChosenButton = i;
+        } else {
+            buyoutButtonsToWork[i].classList.add('buyout-left__block-choice-chosen');
+            indexOfChosenButton = i;
+        }
+    })
+}
+
+for (let i = 0; i < buyoutSwitches.length; i++) {
+    buyoutSwitches[i].addEventListener('click', () => {
+        if (i !== buyoutSwitchChosen) {
+            buyoutSwitches[buyoutSwitchChosen].classList.remove('buyout-left__switch-active');
+            buyoutSwitches[i].classList.add('buyout-left__switch-active');
+            buyoutInnerBlocks[buyoutSwitchChosen].style.maxHeight = '0px';
+            buyoutSwitchChosen = i;
+            setTimeout(() => {
+                buyoutInnerBlocks[buyoutSwitchChosen].style.maxHeight = '800px';
+                buyoutButtonsToWork[indexOfChosenButton].classList.remove('buyout-left__block-choice-chosen');
+                indexOfChosenButton = -1;
+            }, 500)
+        }
+    })
+}
+
+
+// select
+
+let selects = document.querySelectorAll('.select');
+let chosenOptions = document.querySelectorAll('.chosen-option');
+let optionsBlocks = document.querySelectorAll('.options');
+
+for (let i = 0; i < selects.length; i++) {
+    selects[i].addEventListener('click', () => {
+        let arrowDown = selects[i].querySelector('.fa-chevron-down');
+        if (optionsBlocks[i].style.maxHeight === '0px' || optionsBlocks[i].style.maxHeight === '') {
+            optionsBlocks[i].style.maxHeight = '194px';
+            optionsBlocks[i].style.overflow = 'auto';
+            arrowDown.style.color = '#acadad';
+            arrowDown.style.transform = 'translateY(-50%) rotate(180deg)';
+            if (selects[i].classList.contains('find__select')) {
+                selects[i].classList.add('find__select-active');
+            }
+        } else {
+            optionsBlocks[i].style.maxHeight = '0px';
+            optionsBlocks[i].style.overflow = 'hidden';
+            arrowDown.style.color = '#4abef7';
+            arrowDown.style.transform = 'translateY(-50%) rotate(0deg)';
+            if (selects[i].classList.contains('find__select')) {
+                selects[i].classList.remove('find__select-active');
+            }
+        }
+        let options = optionsBlocks[i].querySelectorAll('.option');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                chosenOptions[i].textContent = option.textContent;
+            })
+        })
+    })
+}
+
+document.addEventListener('click', (event) => {
+    let target = event.target;
+    for (let i = 0; i < selects.length; i++) {
+        let arrowDown = selects[i].querySelector('.fa-chevron-down');
+        if ((!(optionsBlocks[i].style.maxHeight === '0px' || optionsBlocks[i].style.maxHeight === '')) && (target !== selects[i]) && (!(selects[i].contains(target)))) {
+            optionsBlocks[i].style.maxHeight = '0px';
+            optionsBlocks[i].style.overflow = 'hidden';
+            arrowDown.style.color = '#4abef7';
+            arrowDown.style.transform = 'translateY(-50%) rotate(0deg)';
+            if (selects[i].classList.contains('find__select-active')) {
+                selects[i].classList.remove('find__select-active');
+            }
+        }
+    }
+})
+
+// request
+
+let openRequestBtns = document.querySelectorAll('.open-request');
+let closeRequestBtns = document.querySelectorAll('.close-request');
+let requestBlocks = document.querySelectorAll('.buyout-request');
+
+for (let i = 0; i < openRequestBtns.length; i++) {
+    openRequestBtns[i].addEventListener('click', () => {
+        requestBlocks[i].style.maxHeight = '280px';
+        requestBlocks[i].style.marginTop = '34px';
+        setTimeout(() => {
+            requestBlocks[i].style.overflow = 'visible';
+        }, 400)
+    })
+}
+
+for (let i = 0; i < closeRequestBtns.length; i++) {
+    closeRequestBtns[i].addEventListener('click', () => {
+        requestBlocks[i].style.maxHeight = '0px';
+        requestBlocks[i].style.marginTop = '0px';
+        requestBlocks[i].style.overflow = 'hidden';
+    })
+}
+
+
+
+
+
+
+
+
+
+
+let footerShowBtns = document.querySelectorAll('.footer__show-btn');
+let footerLists = document.querySelectorAll('.footer__lists');
+let footerArrowsUp = document.querySelectorAll('.footer__arrow-up');
+let footerArrowsDown = document.querySelectorAll('.footer__arrow-down');
+
+let footerShowLinks = document.getElementsByClassName('footer__show-btn');
+
+
+
+for( let i = 0; i < footerShowBtns.length; i++) {
+    footerShowBtns[i].addEventListener('click', () => {
+        footerArrowsUp[i].classList.toggle('hidden');
+        footerArrowsDown[i].classList.toggle('hidden');
+        if (footerShowBtns[i].getElementsByTagName('span')[0].textContent == 'Показать все') {
+            footerShowBtns[i].getElementsByTagName('span')[0].textContent = 'Скрыть';
+            footerLists[i].style.maxHeight = '718px';
+        } else {
+            footerShowBtns[i].getElementsByTagName('span')[0].textContent = 'Показать все';
+            footerLists[i].style.maxHeight = '253px';
+        }
+    })
+}
